@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0439d44d-e58e-4b68-a649-9e01a308fef1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Tap Backpack Hero Game.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/Enemy/BaseEnemy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/Enemy/BossEnemy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/Enemy/Enemy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/Inventory/ActiveInventory.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/Inventory/BackpackInventory.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/Inventory/Inventory.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/Inventory/PickupInventory.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/Inventory/cell.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/Item/Armor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/Item/Consumable.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/Item/Item.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/Item/Trinket.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/Item/Weapon.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/Main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/Player.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/weapons_en_ru.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="3Bli0THZTpKryZuIHnXq5BaCPIk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.ActiveInventory.executor": "Run",
+    "Python.Inventory.executor": "Run",
+    "Python.Player.executor": "Run",
+    "Python.cell.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\levak\PycharmProjects\Tap Backpack Hero Game\classes\Enemy" />
+      <recent name="C:\Users\levak\PycharmProjects\Tap Backpack Hero Game\classes\Items" />
+      <recent name="C:\Users\levak\PycharmProjects\Tap Backpack Hero Game\classes" />
+      <recent name="C:\Users\levak\PycharmProjects\Tap Backpack Hero Game\classes\inventory" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-b63d5a1f7c97-b61e75351b1f-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.22158.340" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0439d44d-e58e-4b68-a649-9e01a308fef1" name="Changes" comment="" />
+      <created>1775069834483</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1775069834483</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
