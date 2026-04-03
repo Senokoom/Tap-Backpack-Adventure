@@ -1,4 +1,4 @@
-bases:
+weapon:
   - id: sword_01
     name:
       en: Sword
@@ -77,7 +77,7 @@ bases:
         value: 0.1
         type: add
 
-prefixes:
+prefix:
   - id: strong
     name:
       en: Strong
@@ -361,3 +361,32 @@ prefixes:
       critical_damage_chance:
         value: 0.5
         type: multiply
+
+
+suffix:
+  - id: destroyer
+    name:
+      en: Destroyer
+      ru: Разрушитель
+    rarity: common
+    stats:
+      phisical_damage:
+        value: 3
+        type: add
+      critical_damage:
+        value: 1.1
+        type: multiply
+
+  - id: shredder
+    name:
+      en: Shredder
+      ru: Измельчающий
+    rarity: uncommon
+    stats:
+      phisical_damage:
+        value: 3
+        type: add
+      gold_drop:
+        value: 1.1
+        type: multiply
+
