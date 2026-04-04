@@ -1,0 +1,222 @@
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+deleted file mode 100644
+--- a/.idea/modules.xml	(revision 929bbb9061e8d31929cfe3680de7f7cc952d2525)
++++ /dev/null	(revision 929bbb9061e8d31929cfe3680de7f7cc952d2525)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/Tap Backpack Hero Game.iml" filepath="$PROJECT_DIR$/.idea/Tap Backpack Hero Game.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: classes/System/ItemGenerator.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from classes.Item.Item import Item\r\nfrom classes.Item.Armor import Armor\r\nfrom classes.Item.Trinket import Trinket\r\nfrom classes.Item.Weapon import Weapon\r\nfrom classes.Item.Consumable import Consumable\r\n\r\nclass ItemGenerator:\r\n    def __init__(self):\r\n        pass
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/classes/System/ItemGenerator.py b/classes/System/ItemGenerator.py
+--- a/classes/System/ItemGenerator.py	(revision 929bbb9061e8d31929cfe3680de7f7cc952d2525)
++++ b/classes/System/ItemGenerator.py	(date 1775332314939)
+@@ -1,9 +1,32 @@
+-from classes.Item.Item import Item
+ from classes.Item.Armor import Armor
+ from classes.Item.Trinket import Trinket
+ from classes.Item.Weapon import Weapon
+ from classes.Item.Consumable import Consumable
+ 
++from DataManagment.DataLoader import get_weapon_data
++
++
+ class ItemGenerator:
++
+     def __init__(self):
+-        pass
+\ No newline at end of file
++        weapon_data = get_weapon_data()
++        self.weapon, self.suffix, self.prefix = weapon_data["weapon"], weapon_data["suffix"], weapon_data["prefix"]
++        self.rarity_weights = {
++            "common": 70,
++            "uncommon": 15,
++            "rare": 10,
++            "epic": 5,
++            "legendary": 1
++        }
++
++    #Генерирует СТРОГО оружие
++
++    def generate_weapon(self) -> Weapon:
++       pass
++
++    def create_weighted_lists(self):
++        pass
++
++    def apply_weights_bonus(self, bonus):
++       pass
++
+Index: DataManagment/DataLoader.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import yaml\r\n\r\nwith open(\"data/weapons_en_ru.yaml\", mode=\"r\", encoding=\"utf-8\") as weapons_data_file:\r\n    weapons_data = yaml.safe_load(weapons_data_file)\r\n\r\nlanguage = \"ru\"\r\n\r\n\r\ndef get_weapon_data():\r\n    return [\r\n        weapons_data[\"weapon\"],\r\n        weapons_data[\"prefix\"],\r\n        weapons_data[\"suffix\"],\r\n    ]\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/DataManagment/DataLoader.py b/DataManagment/DataLoader.py
+--- a/DataManagment/DataLoader.py	(revision 929bbb9061e8d31929cfe3680de7f7cc952d2525)
++++ b/DataManagment/DataLoader.py	(date 1775332314939)
+@@ -1,14 +1,28 @@
+ import yaml
++<<<<<<< HEAD
+ 
+ with open("data/weapons_en_ru.yaml", mode="r", encoding="utf-8") as weapons_data_file:
++=======
++from pathlib import Path
++
++project_data_dir = Path(__file__).resolve().parent.parent / "data"
++print(project_data_dir)
++
++
++with open(project_data_dir / "weapons_en_ru.yaml", mode="r", encoding="utf-8") as weapons_data_file:
++>>>>>>> 58d32f2f4a3a29a4fcbed2b9365ce3a5ee326e48
+     weapons_data = yaml.safe_load(weapons_data_file)
+ 
+ language = "ru"
+ 
+ 
+ def get_weapon_data():
++<<<<<<< HEAD
+     return [
+         weapons_data["weapon"],
+         weapons_data["prefix"],
+         weapons_data["suffix"],
+     ]
++=======
++    return weapons_data
++>>>>>>> 58d32f2f4a3a29a4fcbed2b9365ce3a5ee326e48
+Index: .idea/Tap Backpack Hero Game.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"PYTHON_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\">\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <excludeFolder url=\"file://$MODULE_DIR$/venv\" />\r\n    </content>\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/Tap Backpack Hero Game.iml b/.idea/Tap Backpack Hero Game.iml
+--- a/.idea/Tap Backpack Hero Game.iml	(revision 929bbb9061e8d31929cfe3680de7f7cc952d2525)
++++ b/.idea/Tap Backpack Hero Game.iml	(date 1775332314936)
+@@ -1,10 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<module type="PYTHON_MODULE" version="4">
+-  <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$">
+-      <excludeFolder url="file://$MODULE_DIR$/venv" />
+-    </content>
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
++<module version="4">
++  <component name="PyDocumentationSettings">
++    <option name="format" value="PLAIN" />
++    <option name="myDocStringFormat" value="Plain" />
+   </component>
+ </module>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5d79e9be-9ea3-42a9-b7e3-91c0f393af9d\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 0\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"3BouEW0D97MsLdfz70JjETHAT9w\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\levak\\PycharmProjects\\Tap Backpack Hero Game\\DataManagment\" />\r\n      <recent name=\"C:\\Users\\levak\\PycharmProjects\\Tap Backpack Hero Game\\\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-python-sdk-50da183f06c8-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13135.95\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5d79e9be-9ea3-42a9-b7e3-91c0f393af9d\" name=\"Changes\" comment=\"\" />\r\n      <created>1775167633044</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1775167633044</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 929bbb9061e8d31929cfe3680de7f7cc952d2525)
++++ b/.idea/workspace.xml	(date 1775332314938)
+@@ -5,7 +5,14 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="">
++<<<<<<< HEAD
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++=======
++      <change beforePath="$PROJECT_DIR$/.idea/Tap Backpack Hero Game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Tap Backpack Hero Game.iml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/DataManagment/DataLoader.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataManagment/DataLoader.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/classes/System/ItemGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/ItemGenerator.py" afterDir="false" />
++>>>>>>> 58d32f2f4a3a29a4fcbed2b9365ce3a5ee326e48
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -30,11 +37,22 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
++<<<<<<< HEAD
+   <component name="PropertiesComponent">{
+   &quot;keyToString&quot;: {
+     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+     &quot;git-widget-placeholder&quot;: &quot;master&quot;
++=======
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Python.DataLoader.executor": "Run",
++    "Python.ItemGenerator.executor": "Run",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "git-widget-placeholder": "master",
++    "node.js.selected.package.tslint": "(autodetect)"
++>>>>>>> 58d32f2f4a3a29a4fcbed2b9365ce3a5ee326e48
+   }
+ }</component>
+   <component name="RecentsManager">
+@@ -61,4 +79,23 @@
+     </task>
+     <servers />
+   </component>
++<<<<<<< HEAD
++=======
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="Revert &quot;f&quot;&#10;&#10;This reverts commit 078bfabd6f203a268ce23cb979d6b5a26c0913ae." />
++    <MESSAGE value="f" />
++    <option name="LAST_COMMIT_MESSAGE" value="f" />
++  </component>
++>>>>>>> 58d32f2f4a3a29a4fcbed2b9365ce3a5ee326e48
+ </project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"VcsDirectoryMappings\">\r\n    <mapping directory=\"$PROJECT_DIR$\" vcs=\"Git\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+--- a/.idea/vcs.xml	(revision 929bbb9061e8d31929cfe3680de7f7cc952d2525)
++++ b/.idea/vcs.xml	(date 1775332314937)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++    <mapping directory="" vcs="Git" />
+   </component>
+ </project>
+\ No newline at end of file
