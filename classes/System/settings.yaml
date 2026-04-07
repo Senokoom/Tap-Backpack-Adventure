@@ -1,5 +1,5 @@
 math_settings:
-  max_cap_rare_item_chance: 0.8
+  max_cap_rare_item_chance: 0.9
 
 settings:
-  language: ru
+  language: en

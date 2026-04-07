@@ -4,6 +4,9 @@ weapon:
       en: Sword
       ru: Меч
     rarity: common
+    size:
+      height: 2
+      width: 1
     stats:
       physical_damage:
         value: 5
@@ -17,6 +20,9 @@ weapon:
       en: Axe
       ru: Топор
     rarity: common
+    size:
+      height: 2
+      width: 1
     stats:
       physical_damage:
         value: 5
@@ -30,6 +36,9 @@ weapon:
       en: Bow
       ru: Лук
     rarity: uncommon
+    size:
+      height: 2
+      width: 2
     stats:
       physical_damage:
         value: 4
@@ -43,6 +52,9 @@ weapon:
       en: Mace
       ru: Булава
     rarity: uncommon
+    size:
+      height: 3
+      width: 1
     stats:
       physical_damage:
         value: 7
@@ -56,6 +68,9 @@ weapon:
       en: Whip
       ru: Кнут
     rarity: common
+    size:
+      height: 4
+      width: 1
     stats:
       physical_damage:
         value: 6
@@ -69,6 +84,9 @@ weapon:
       en: Pistoleer
       ru: Пистольер
     rarity: epic
+    size:
+      height: 2
+      width: 1
     stats:
       physical_damage:
         value: 10
@@ -76,317 +94,3 @@ weapon:
       critical_damage:
         value: 0.1
         type: add
-
-prefix:
-  - id: strong
-    name:
-      en: Strong
-      ru: Сильный
-    rarity: common
-    stats:
-      physical_damage:
-        value: 3
-        type: add
-
-  - id: sharp
-    name:
-      en: Sharp
-      ru: Острый
-    rarity: common
-    stats:
-      physical_damage:
-        value: 2
-        type: add
-      critical_damage_chance:
-        value: 0.05
-        type: add
-
-  - id: fatal
-    name:
-      en: Fatal
-      ru: Роковой
-    rarity: uncommon
-    stats:
-      critical_damage:
-        value: 1.2
-        type: multiply
-      critical_damage_chance:
-        value: 0.1
-        type: add
-
-  - id: bloody
-    name:
-      en: Bloody
-      ru: Кровавый
-      rarity: uncommon
-    stats:
-      physical_damage:
-        value: 5
-        type: add
-      item_drop:
-        value: 0.85
-        type: multiply
-
-  - id: world_destroyer
-    name:
-      en: World Destroyer's
-      ru: Сокрушающий миры
-    rarity: rare
-    stats:
-      physical_damage:
-        value: 10
-        type: add
-      xp_drop:
-        value: 1.2
-        type: multiply
-      gold_drop:
-        value: 0.8
-        type: multiply
-
-  - id: merciless
-    name:
-      en: Merciless
-      ru: Беспощадный
-    rarity: epic
-    stats:
-      critical_damage:
-        value: 1.8
-        type: multiply
-      critical_damage_chance:
-        value: 0.1
-        type: add
-
-  - id: ice_death
-    name:
-      en: Ice Death's
-      ru: Ледяной Смерти
-    rarity: uncommon
-    stats:
-      ice_damage:
-        value: 7
-        type: add
-      fire_damage:
-        value: 0.5
-        type: multiply
-
-  - id: hellish
-    name:
-      en: Hellish
-      ru: Адский
-    rarity: uncommon
-    stats:
-      fire_damage:
-        value: 7
-        type: add
-      ice_damage:
-        value: 0.5
-        type: multiply
-
-  - id: electrical
-    name:
-      en: Electrical
-      ru: Электрический
-    rarity: common
-    stats:
-      lightning_damage:
-        value: 2
-        type: add
-
-  - id: king_wrath
-    name:
-      en: The King's Wrath
-      ru: Королевский Гнев
-    rarity: epic
-    stats:
-      physical_damage:
-        value: 5
-        type: add
-      rare_item_chance:
-        value: 0.1
-        type: add
-      gold_drop:
-        value: 1.35
-        type: multiply
-
-  - id: chernobyl
-    name:
-      en: Chernobyl
-      ru: Чернобыльский
-    rarity: rare
-    stats:
-      fire_damage:
-        value: 3
-        type: add
-      emotional_damage:
-        value: 5
-        type: add
-      item_drop:
-        value: 0.65
-        type: multiply
-
-  - id: apocalyptic
-    name:
-      en: Apocalyptic
-      ru: Апокалиптичный
-    rarity: legendary
-    stats:
-      fire_damage:
-        value: 3
-        type: add
-      ice_damage:
-        value: 3
-        type: add
-      lightning_damage:
-        value: 3
-        type: add
-      emotional_damage:
-        value: 3
-        type: add
-      physical_damage:
-        value: 0.26041986
-        type: multiply
-      xp_drop:
-        value: 1.4
-        type: multiply
-
-  - id: bonebreaker
-    name:
-      en: Bone Breaker
-      ru: Костолом
-    rarity: uncommon
-    stats:
-      physical_damage:
-        value: 6
-        type: add
-      critical_damage:
-        value: 0.8
-        type: multiply
-
-  - id: crying
-    name:
-      en: Crying
-      ru: Плачущий
-    rarity: epic
-    stats:
-      emotional_damage:
-        value: 1.3
-        type: multiply
-      ice_damage:
-        value: 3
-        type: add
-      critical_damage_chance:
-        value: 0.05
-        type: add
-
-  - id: soulgather
-    name:
-      en: Soul Gatherer's
-      ru: Собирающий Души
-    rarity: rare
-    stats:
-      physical_damage:
-        value: 2
-        type: add
-      xp_drop:
-        value: 1.2
-        type: multiply
-      gold_drop:
-        value: 0.90
-        type: multiply
-
-  - id: fleshtear
-    name:
-      en: Flesh Tearer's
-      ru: Разрывающий Плоть
-    rarity: epic
-    stats:
-      physical_damage:
-        value: 0.867
-        type: multiply
-      item_drop:
-        value: 1.2
-        type: multiply
-      rare_item_chance:
-        value: 0.15
-        type: add
-
-  - id: hellwhisper
-    name:
-      en: Hell Whisperer's
-      ru: Адский Шептун
-    rarity: common
-    stats:
-      emotional_damage:
-        value: 3
-        type: add
-
-  - id: quantum
-    name:
-      en: Quantum
-      ru: Квантовый
-    rarity: rare
-    stats:
-      critical_damage_chance:
-        value: 0.2
-        type: add
-      critical_damage:
-        value: 1.5
-        type: multiply
-      physical_damage:
-        value: 0.567
-        type: multiply
-
-  - id: cardboard
-    name:
-      en: Cardboard
-      ru: Картонный
-    rarity: common
-    stats:
-      physical_damage:
-        value: 0.3
-        type: multiply
-      emotional_damage:
-        value: 5
-        type: add
-
-  - id: speaking
-    name:
-      en: Speaking
-      ru: Говорящий
-    rarity: common
-    stats:
-      emotional_damage:
-        value: 5
-        type: add
-      critical_damage_chance:
-        value: 0.5
-        type: multiply
-
-
-suffix:
-  - id: destroyer
-    name:
-      en: Destroyer
-      ru: Разрушитель
-    rarity: common
-    stats:
-      phisical_damage:
-        value: 3
-        type: add
-      critical_damage:
-        value: 1.1
-        type: multiply
-
-  - id: shredder
-    name:
-      en: Shredder
-      ru: Измельчающий
-    rarity: uncommon
-    stats:
-      phisical_damage:
-        value: 3
-        type: add
-      gold_drop:
-        value: 1.1
-        type: multiply
-

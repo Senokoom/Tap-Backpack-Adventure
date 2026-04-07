@@ -1,0 +1,26 @@
+suffix:
+  - id: destroyer
+    name:
+      en: Destroyer
+      ru: Разрушитель
+    rarity: common
+    stats:
+      phisical_damage:
+        value: 3
+        type: add
+      critical_damage:
+        value: 1.1
+        type: multiply
+
+  - id: shredder
+    name:
+      en: Shredder
+      ru: Измельчающий
+    rarity: uncommon
+    stats:
+      phisical_damage:
+        value: 3
+        type: add
+      gold_drop:
+        value: 1.1
+        type: multiply

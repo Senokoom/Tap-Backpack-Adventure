@@ -4,12 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="fixup! s">
-      <change afterPath="$PROJECT_DIR$/classes/System/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/System/settings.yaml" afterDir="false" />
+    <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="f">
+      <change afterPath="$PROJECT_DIR$/data/prefixes_en_ru.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/suffixes_en_ru.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Tap Backpack Hero Game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Tap Backpack Hero Game.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataManagment/DataLoader.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataManagment/DataLoader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Item/Armor.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Armor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Item/Consumable.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Consumable.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Item/Item.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Item.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Item/Trinket.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Trinket.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Item/Weapon.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Weapon.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/System/ItemGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/ItemGenerator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/System/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/System/settings.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/settings.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/weapons_en_ru.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/data/weapons_en_ru.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +35,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Senokoom"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Senokoom/Tap-Backpack-Adventure",
+    "accountId": "654ec895-effe-44e8-b4ea-ae81d023dae5"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -41,8 +62,16 @@
     "Python.settings.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "master",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -54,7 +83,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-50da183f06c8-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13135.95" />
+        <option value="bundled-python-sdk-b63d5a1f7c97-b61e75351b1f-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.22158.340" />
       </set>
     </attachedChunks>
   </component>
@@ -69,12 +98,27 @@
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
