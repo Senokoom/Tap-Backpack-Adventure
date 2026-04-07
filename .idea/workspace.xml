@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="Короче, теперь generate_item генерирует не только оружие, но и любой предмет в зависимости от того, что ему передать в списке. Но осталось это доделать, чтобы он использовал map -&gt; item_type_to_class и генерировал в итоге предмет на выходе.  &#10;&#10;Так же теперь ItemGenerator.py подтягивает язык из settings.py. И я разделил weapons_en_ru.yaml на suffixes_en_ru.yaml и prefixes_en_ru.yaml." />
+    <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="Короче, теперь generate_item генерирует не только оружие, но и любой предмет в зависимости от того, что ему передать в списке. Но осталось это доделать, чтобы он использовал map -&gt; item_type_to_class и генерировал в итоге предмет на выходе. Так же теперь ItemGenerator.py подтягивает язык из settings.py. И я разделил weapons_en_ru.yaml на suffixes_en_ru.yaml и prefixes_en_ru.yaml.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Item/Armor.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Armor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Item/Consumable.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Consumable.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Item/Item.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Item.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Item/Trinket.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Trinket.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Item/Weapon.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Weapon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Player.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/System/ItemGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/ItemGenerator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/suffixes_en_ru.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/data/suffixes_en_ru.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,18 +30,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Senokoom"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Senokoom&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Senokoom/Tap-Backpack-Adventure",
-    "accountId": "654ec895-effe-44e8-b4ea-ae81d023dae5"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Senokoom/Tap-Backpack-Adventure&quot;,
+    &quot;accountId&quot;: &quot;654ec895-effe-44e8-b4ea-ae81d023dae5&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -44,6 +54,7 @@
   "keyToString": {
     "Python.DataLoader.executor": "Run",
     "Python.ItemGenerator.executor": "Run",
+    "Python.Weapon.executor": "Run",
     "Python.settings.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",

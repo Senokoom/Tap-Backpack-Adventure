@@ -1,5 +1,5 @@
 class Item:
-    def __init__(self, name, rarity, height, width, price, _type=None, img=None, stats=None):
+    def __init__(self, name, rarity, height, width, price, stats, _type=None, img=None):
         self.name = name
         self.rarity = rarity
         self.type = _type
