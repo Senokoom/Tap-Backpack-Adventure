@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="f">
-      <change afterPath="$PROJECT_DIR$/data/prefixes_en_ru.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/suffixes_en_ru.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Tap Backpack Hero Game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Tap Backpack Hero Game.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataManagment/DataLoader.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataManagment/DataLoader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Item/Armor.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Armor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Item/Consumable.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Consumable.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Item/Item.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Item.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Item/Trinket.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Trinket.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Item/Weapon.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Weapon.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/System/ItemGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/ItemGenerator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/System/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/System/settings.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/settings.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/weapons_en_ru.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/data/weapons_en_ru.yaml" afterDir="false" />
-    </list>
+    <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="Короче, теперь generate_item генерирует не только оружие, но и любой предмет в зависимости от того, что ему передать в списке. Но осталось это доделать, чтобы он использовал map -&gt; item_type_to_class и генерировал в итоге предмет на выходе.  &#10;&#10;Так же теперь ItemGenerator.py подтягивает язык из settings.py. И я разделил weapons_en_ru.yaml на suffixes_en_ru.yaml и prefixes_en_ru.yaml." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,6 +81,15 @@
       <option name="presentableId" value="Default" />
       <updated>1775167633044</updated>
     </task>
+    <task id="LOCAL-00001" summary="Короче, теперь generate_item генерирует не только оружие, но и любой предмет в зависимости от того, что ему передать в списке. Но осталось это доделать, чтобы он использовал map -&gt; item_type_to_class и генерировал в итоге предмет на выходе.  &#10;&#10;Так же теперь ItemGenerator.py подтягивает язык из settings.py. И я разделил weapons_en_ru.yaml на suffixes_en_ru.yaml и prefixes_en_ru.yaml.">
+      <option name="closed" value="true" />
+      <created>1775565966695</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1775565966695</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,6 +122,7 @@
     <MESSAGE value="Revert &quot;f&quot;&#10;&#10;This reverts commit 078bfabd6f203a268ce23cb979d6b5a26c0913ae." />
     <MESSAGE value="f" />
     <MESSAGE value="fixup! s" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixup! s" />
+    <MESSAGE value="Короче, теперь generate_item генерирует не только оружие, но и любой предмет в зависимости от того, что ему передать в списке. Но осталось это доделать, чтобы он использовал map -&gt; item_type_to_class и генерировал в итоге предмет на выходе.  &#10;&#10;Так же теперь ItemGenerator.py подтягивает язык из settings.py. И я разделил weapons_en_ru.yaml на suffixes_en_ru.yaml и prefixes_en_ru.yaml." />
+    <option name="LAST_COMMIT_MESSAGE" value="Короче, теперь generate_item генерирует не только оружие, но и любой предмет в зависимости от того, что ему передать в списке. Но осталось это доделать, чтобы он использовал map -&gt; item_type_to_class и генерировал в итоге предмет на выходе.  &#10;&#10;Так же теперь ItemGenerator.py подтягивает язык из settings.py. И я разделил weapons_en_ru.yaml на suffixes_en_ru.yaml и prefixes_en_ru.yaml." />
   </component>
 </project>
