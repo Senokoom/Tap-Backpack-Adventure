@@ -1,5 +1,17 @@
 math_settings:
   max_cap_rare_item_chance: 0.9
+  rarity_to_price:
+    common: 10
+    uncommon: 25
+    rare: 60
+    epic: 150
+    legendary: 400
+  default_rarity_weights:
+    common: 60
+    uncommon: 25
+    rare: 10
+    epic: 4
+    legendary: 1
 
 settings:
   language: en

@@ -4,22 +4,15 @@ from classes.Item.Weapon import Weapon
 from classes.Item.Consumable import Consumable
 
 from DataManagment.DataLoader import get_weapon_data, get_prefix_data, get_suffix_data
-from settings import max_cap_rare_item_chance, language
+from settings import max_cap_rare_item_chance, language, default_rarity_weights, rarity_to_price
 from math import floor
 from random import randint, choice
 
 class ItemGenerator:
 
     def __init__(self):
-        weapon_data = get_weapon_data()
-        self.weapon_info = weapon_data
-        self.rarity_weights = {
-            "common": 60,
-            "uncommon": 25,
-            "rare": 10,
-            "epic": 4,
-            "legendary": 1
-        }
+        self.rarity_weights = default_rarity_weights
+        self.rarity_to_price = rarity_to_price
 
 
 
@@ -27,7 +20,7 @@ class ItemGenerator:
 
 
     # Генерирует любой Айтем(по идее) пока что нихуя не работает и надо думать.. сука
-    def generate_item(self, bonus, item_info):
+    def generate_item(self, bonus, item_info, item_type):
         """
         Написал эту хуйню сюда, чтоб не забыть что такое item_info :)
         Кстати, здравствуйте :))
@@ -36,72 +29,80 @@ class ItemGenerator:
         :param item_info: Короче, это список(list) из prefix, item_type(либо weapon, armor, etc.), suffix. СТОРО В ЭТОМ ПОРЯДКЕ
         :return: новый Item
         """
-        item_type_to_class = {
-            "weapon": Weapon,
-            "armor": Armor,
-            "trinket": Trinket
-            # "consumable": Consumable
-        }
-        chance_list = self.apply_weights_bonus(bonus)
         final_parts = {}
-        final_rarity = 0
-        current_type = ""
         for name_type in item_info:
             for name in name_type.keys():
-                if name in item_type_to_class.keys():
-                    current_type = name
-                # print(f"ВЫБИРАЮ: {name}")
                 rarity_random_chance = randint(0, 100)
                 rarity_random_chance_value = 0
-                for rarity, rarity_value in reversed(chance_list.items()):
+                for rarity, rarity_value in reversed(self.apply_weights_bonus(bonus).items()):
                     if (100 - rarity_random_chance) <= rarity_value:
                         rarity_random_chance_value = rarity
                         break
                 rarity_random_chance_value = "common" if rarity_random_chance_value == 0 else rarity_random_chance_value
-                final_rarity += (100-rarity_random_chance)
-                # print(f"ВОТ С ТАКОЙ РЕДКОСТЬЮ: {rarity_random_chance_value}")
                 temp_possible_weapon_part_list = []
                 for item_part in name_type[name]:
-                    # print(item_part)
                     if item_part["rarity"] == rarity_random_chance_value:
                         temp_possible_weapon_part_list.append(item_part)
-                        # print(f"{item_part['name'][language]} ДОБАВЛЕН В СПИСОК ВОЗМОЖНЫХ")
                 final_parts[name] = choice(temp_possible_weapon_part_list)
-        #         print(f" В ИТОГЕ ВЫБРАЛ {final_parts[list(final_parts)[-1]]['name'][language]}")
-        #         print("--------------------------------------------------")
-        # print("--------------------------------")
-        print("Финальное оружие")
-        item_name = ''
-        # print(final_parts)
-        for part, value in final_parts.items():
-            item_name += final_parts[part]['name'][language] + " "
-        print(item_name)
-        price = final_rarity
-        for rarity, rarity_value in reversed(chance_list.items()):
-            if (100*len(final_parts) - final_rarity) <= rarity_value*len(final_parts):
-                final_rarity = rarity
-                break
-        final_rarity = "common" if type(final_rarity) == int else final_rarity
         stats_list = []
         for part, value in final_parts.items():
             stats_list.append(final_parts[part]['stats'])
-        # super().__init__(name, rarity, height, width, price, img, stats)\
-        #{'prefix': {'id': 'strong', 'name': {'en': 'Strong', 'ru': 'Сильный'}, 'rarity': 'common', 'stats': {'physical_damage': {'value': 3, 'type': 'add'}}},
-        # 'weapon': {'id': 'axe_01', 'name': {'en': 'Axe', 'ru': 'Топор'}, 'rarity': 'common', 'size': {'height': 2, 'width': 1}, 'stats': {'physical_damage': {'value': 5, 'type': 'add'}, 'critical_damage': {'value': 0.1, 'type': 'add'}}},
-        # 'suffix': {'id': 'destroyer', 'name': {'en': 'Destroyer', 'ru': 'Разрушитель'}, 'rarity': 'common', 'stats': {'phisical_damage': {'value': 3, 'type': 'add'}, 'critical_damage': {'value': 1.1, 'type': 'multiply'}}}}
+        if item_type == Consumable:
+            return self.generate_consumable(final_parts, stats_list)
+        else:
+            return self.generate_equipment(final_parts, item_type, stats_list)
 
-        result_item = item_type_to_class[current_type](item_name, final_rarity, final_parts[current_type]["size"]["height"],final_parts[current_type]["size"]["width"], self.merge_stats(stats_list), price)
+
+    def generate_consumable(self, final_parts, stats_list):
+        result_consumable = Consumable(
+            self.generate_item_name(final_parts), self.generate_item_rarity(final_parts),
+            final_parts["consumable"]["size"]["height"], final_parts["consumable"]["size"]["width"],
+            final_parts["consumable"]["uses"], final_parts["consumable"]["duration"],
+            self.merge_stats(stats_list), self.generate_item_price(final_parts)
+        )
+        return result_consumable
+
+    def generate_equipment(self, final_parts, item_type, stats_list):
+        item_type_mapping = {
+            "weapon": Weapon,
+            "armor": Armor,
+            "trinket": Trinket
+        }
+        result_item = item_type_mapping[item_type](self.generate_item_name(final_parts), self.generate_item_rarity(final_parts),
+                                                       final_parts[item_type]["size"]["height"],
+                                                       final_parts[item_type]["size"]["width"],
+                                                       self.merge_stats(stats_list), self.generate_item_price(final_parts))
         return result_item
 
 
 
 
+    def generate_item_rarity(self, item_parts_dict):
+        parts_rarity = []
+        weights_map = {
+            "common": 0,
+            "uncommon": 1,
+            "rare": 2,
+            "epic": 3,
+            "legendary": 4
+        }
+        for part, value in item_parts_dict.items():
+            parts_rarity.append(weights_map[item_parts_dict[part]['rarity']])
+        return list(weights_map.keys())[round(sum(parts_rarity)/len(parts_rarity))]
 
 
+    def generate_item_name(self, item_parts_dict):
+        item_name = ''
+        for part, value in item_parts_dict.items():
+            item_name += item_parts_dict[part]['name'][language] + " "
+        return item_name
 
 
-
-
+    def generate_item_price(self, item_parts_dict):
+        priced_parts = 0
+        for part, value in item_parts_dict.items():
+            priced_parts += self.rarity_to_price[item_parts_dict[part]['rarity']]
+        return priced_parts
 
 
     def apply_weights_bonus(self, bonus):
@@ -118,34 +119,26 @@ class ItemGenerator:
             final_weights["common"] += 100 - sum(final_weights.values())
         return final_weights
 
+
     def merge_stats(self, stats_list):
         result_stats = {}
         for stat in stats_list:
             for part, value in stat.items():
-                print(value)
                 if part in result_stats.keys():
                     for i in range(len(result_stats[part])):
                         if result_stats[part][i]["type"] != stat[part]["type"]:
                             result_stats[part].append(stat[part])
                         else:
-                            # print("DID SMTH")
                             if result_stats[part][i]["type"] == "multiply":
                                 result_stats[part][i]["value"] *= stat[part]["value"]
-                                # print(f"ВОТ НОВОЕ УМНОЖИТЬ {result_stats[part][i]}")
                             elif result_stats[part][i]["type"] == "add":
                                 result_stats[part][i]["value"] += stat[part]["value"]
-                                # print(f"ВОТ НОВОЕ ПЛЮС {part} : {result_stats[part]}")
                 result_stats[part] = [stat[part]]
-                # print(result_stats)
         return result_stats
 
 
 
 
 debug = ItemGenerator()
-# debug.generate_item(0.5, {
-#     "prefix": get_prefix_data(),
-#     "item": get_weapon_data(),
-#     "suffix": get_suffix_data()})
-print(debug.generate_item(0.5, [get_prefix_data(), get_weapon_data(), get_suffix_data()]).get_info())
-print("ИНФА БЛЯТЬ")
+weapon = debug.generate_item(0.8, [get_prefix_data(), get_weapon_data(), get_suffix_data()], "weapon")
+print(weapon.get_info())

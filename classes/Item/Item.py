@@ -2,7 +2,7 @@ class Item:
     def __init__(self, name, rarity, height, width, price, stats, _type=None, img=None):
         self.name = name
         self.rarity = rarity
-        self.type = _type
+        self._type = _type
         self.height = height
         self.width = width
         self.price = price
@@ -13,7 +13,7 @@ class Item:
         return {
             "name": self.name,
             "rarity": self.rarity,
-            "type": self.type,
+            "type": self._type,
             "height": self.height,
             "width": self.width,
             "stats": self.stats,
