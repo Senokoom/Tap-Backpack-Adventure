@@ -6,14 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Item/Armor.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Armor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Item/Consumable.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Consumable.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Item/Item.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Item.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Item/Trinket.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Trinket.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Item/Weapon.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Weapon.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/System/ItemGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/ItemGenerator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/System/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/System/settings.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/settings.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/prefixes_en_ru.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/data/prefixes_en_ru.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +101,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775598797620</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="переформатировал ItemGenerator.py, теперь выглядит норм и может генерить и Consumable.py. Поправил Armor.py, Consumable.py, Item.py, Trinket.py, Weapon.py. Исправил ошибку с неназначением _type. Так же перенес изначальные значения весов и их стоимость в settings.yaml">
+      <option name="closed" value="true" />
+      <created>1775640011271</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1775640011271</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +144,7 @@
     <MESSAGE value="fixup! s" />
     <MESSAGE value="Короче, теперь generate_item генерирует не только оружие, но и любой предмет в зависимости от того, что ему передать в списке. Но осталось это доделать, чтобы он использовал map -&gt; item_type_to_class и генерировал в итоге предмет на выходе.  &#10;&#10;Так же теперь ItemGenerator.py подтягивает язык из settings.py. И я разделил weapons_en_ru.yaml на suffixes_en_ru.yaml и prefixes_en_ru.yaml." />
     <MESSAGE value="Короч, теперь ItemGenerator работает, и реально генерит предметы. Только вот он пока не может генерить Consumable.py, что грустновато. Плюс я исправил ошибку в suffixes_en_ru.yaml и немного изменил посчет stats у Player.py. надеюсь это ничего не сломало. Надо бы дописать так, чтобы он смог создавать Consumable.py тоже. Наверное уже не создавать сам предмет, а делать его с помощью yaml файла самого предмета.. думаем короч" />
-    <option name="LAST_COMMIT_MESSAGE" value="Короч, теперь ItemGenerator работает, и реально генерит предметы. Только вот он пока не может генерить Consumable.py, что грустновато. Плюс я исправил ошибку в suffixes_en_ru.yaml и немного изменил посчет stats у Player.py. надеюсь это ничего не сломало. Надо бы дописать так, чтобы он смог создавать Consumable.py тоже. Наверное уже не создавать сам предмет, а делать его с помощью yaml файла самого предмета.. думаем короч" />
+    <MESSAGE value="переформатировал ItemGenerator.py, теперь выглядит норм и может генерить и Consumable.py. Поправил Armor.py, Consumable.py, Item.py, Trinket.py, Weapon.py. Исправил ошибку с неназначением _type. Так же перенес изначальные значения весов и их стоимость в settings.yaml" />
+    <option name="LAST_COMMIT_MESSAGE" value="переформатировал ItemGenerator.py, теперь выглядит норм и может генерить и Consumable.py. Поправил Armor.py, Consumable.py, Item.py, Trinket.py, Weapon.py. Исправил ошибку с неназначением _type. Так же перенес изначальные значения весов и их стоимость в settings.yaml" />
   </component>
 </project>

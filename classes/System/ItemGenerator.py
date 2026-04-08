@@ -14,12 +14,7 @@ class ItemGenerator:
         self.rarity_weights = default_rarity_weights
         self.rarity_to_price = rarity_to_price
 
-
-
-
-
-
-    # Генерирует любой Айтем(по идее) пока что нихуя не работает и надо думать.. сука
+    # Генерирует любой Айтем(по идее)
     def generate_item(self, bonus, item_info, item_type):
         """
         Написал эту хуйню сюда, чтоб не забыть что такое item_info :)

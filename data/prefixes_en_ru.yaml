@@ -283,3 +283,381 @@ prefix:
         value: 0.5
         type: multiply
 
+  - id: skyrage
+    name:
+      en: Sky's Rage
+      ru: Гнев Небес
+    rarity: rare
+    stats:
+      lightning_damage:
+        value: 5
+        type: add
+      critical_damage:
+        value: 1.3
+        type: multiply
+      critical_damage_chance:
+        value: 0.15
+        type: add
+
+  - id: silent
+    name:
+      en: Silent
+      ru: Тихий
+    rarity: common
+    stats:
+      physical_damage:
+        value: 3
+        type: add
+      critical_damage_chance:
+        value: 0.02
+        type: add
+
+  - id: godeater
+    name:
+      en: God Eater's
+      ru: Пожиратель Богов
+    rarity: legendary
+    stats:
+      physical_damage:
+        value: 1.2
+        type: multiply
+      lightning_damage:
+        value: 1.2
+        type: multiply
+      fire_damage:
+        value: 1.2
+        type: multiply
+      ice_damage:
+        value: 1.2
+        type: multiply
+      critical_damage:
+        value: 1.2
+        type: multiply
+      emotional_damage:
+        value: 1.2
+        type: multiply
+      gold_drop:
+        value: 1.1
+        type: multiply
+
+  - id: fucking
+    name:
+      en: Fucking
+      ru: Ебучий
+    rarity: epic
+    stats:
+      physical_damage:
+        value: 1.5
+        type: multiply
+      emotional_damage:
+        value: 5
+        type: add
+      critical_damage:
+        value: 1.5
+        type: multiply
+      critical_damage_chance:
+        value: 0.15
+        type: add
+
+  - id: horizondestroy
+    name:
+      en: Horizon Destroyer
+      ru: Рушащий Горизонты
+    rarity: rare
+    stats:
+      physical_damage:
+        value: 5
+        type: add
+      xp_drop:
+        value: 1.5
+        type: multiply
+      gold_drop:
+        value: 1.1
+        type: multiply
+
+  - id: plazmatic
+    name:
+      en: Plazmatic
+      ru: Плазменный
+    rarity: common
+    stats:
+      fire_damage:
+        value: 3
+        type: add
+      physical_damage:
+        value: 0.9
+        type: multiply
+
+  - id: gravitational
+    name:
+      en: Gravitational
+      ru: Гравитационный
+    rarity: uncommon
+    stats:
+      physical_damage:
+        value: 3
+        type: add
+      gold_drop:
+        value: 1.1
+        type: multiply
+
+  - id: elfish
+    name:
+      en: Elfish
+      ru: Эльфийский
+    rarity: uncommon
+    stats:
+      critical_damage_chance:
+        value: 0.2
+        type: add
+      critical_damage:
+        value: 1.3
+        type: multiply
+
+  - id: demonic
+    name:
+      en: Demonic
+      ru: Демонический
+    rarity: common
+    stats:
+      emotional_damage:
+        value: 2
+        type: add
+      gold_drop:
+        value: 0.9
+        type: multiply
+
+  - id: cursed
+    name:
+      en: Cursed
+      ru: Проклятый
+    rarity: uncommon
+    stats:
+      emotional_damage:
+        value: 1.3
+        type: multiply
+      critical_damage:
+        value: 1.3
+        type: multiply
+      critical_damage_chance:
+        value: 0.8
+        type: multiply
+      gold_drop:
+        value: 0.8
+        type: multiply
+
+  - id: alchemical
+    name:
+      en: Alchemical
+      ru: Алхимический
+    rarity: rare
+    stats:
+      fire_damage:
+        value: 2
+        type: add
+      ice_damage:
+        value: 2
+        type: add
+
+  - id: moldy
+    name:
+      en: Moldy
+      ru: Плесневелый
+    rarity: uncommon
+    stats:
+      emotional_damage:
+        value: 1.1
+        type: multiply
+      critical_damage_chance:
+        value: 0.15
+        type: add
+
+  - id: fairy
+    name:
+      en: Fairy
+      ru: Стирально-порошковый
+    rarity: epic
+    stats:
+      lightning_damage:
+        value: 5
+        type: add
+      gold_drop:
+        value: 1.3
+        type: multiply
+      critical_damage_chance:
+        value: 0.1
+        type: add
+
+  - id: enchanted
+    name:
+      en: Enchanted
+      ru: Зачарованный
+    rarity: uncommon
+    stats:
+      xp_drop:
+        value: 1.2
+        type: multiply
+      fire_damage:
+        value: 2
+        type: add
+      lightning_damage:
+        value: 2
+        type: add
+
+  - id: sleepy
+    name:
+      en: Sleepy
+      ru: Сонный
+    rarity: uncommon
+    stats:
+      emotional_damage:
+        value: 1
+        type: add
+      ice_damage:
+        value: 3
+        type: add
+      critical_damage:
+        value: 0.7
+        type: multiply
+
+  - id: shadow
+    name:
+      en: Shadow
+      ru: Теневой
+    rarity: common
+    stats:
+      emotional_damage:
+        value: 5
+        type: add
+      critical_damage_chance:
+        value: 0.05
+        type: add
+      gold_drop:
+        value: 0.7
+        type: multiply
+      xp_drop:
+        value: 0.7
+        type: multiply
+
+  - id: bureaucratic
+    name:
+      en: Bureaucratic
+      ru: Бюрократичный
+    rarity: epic
+    stats:
+      emotional_damage:
+        value: 1.5
+        type: multiply
+      gold_drop:
+        value: 1.1
+        type: multiply
+
+  - id: runic
+    name:
+      en: Runic
+      ru: Рунический
+    rarity: common
+    stats:
+      fire_damage:
+        value: 1.03
+        type: multiply
+      ice_damage:
+        value: 1.03
+        type: multiply
+      lightning_damage:
+        value: 1.03
+        type: multiply
+
+  - id: quitegood
+    name:
+      en: Quite Good
+      ru: Вполне Хороший
+    rarity: common
+    stats:
+      critical_damage_chance:
+        value: 0.02
+        type: add
+      physical_damage:
+        value: 2
+        type: add
+
+  - id: heavy
+    name:
+      en: Heavy
+      ru: Тяжелый
+    rarity: common
+    stats:
+      physical_damage:
+        value: 2
+        type: add
+      emotional_damage:
+        value: 1
+        type: add
+
+  - id: shiny
+    name:
+      en: Shiny
+      ru: Блестящий
+    rarity: common
+    stats:
+      gold_drop:
+        value: 1.1
+        type: multiply
+
+  - id: bad
+    name:
+      en: Bad
+      ru: Плохой
+    rarity: common
+    stats:
+      physical_damage:
+        value: 0.8
+        type: multiply
+      critical_damage_chance:
+        value: 0.05
+        type: add
+
+  - id: gay
+    name:
+      en: Gay
+      ru: Гейский
+    rarity: common
+    stats:
+      emotional_damage:
+        value: 1
+        type: add
+      fire_damage:
+        value: 1
+        type: add
+      critical_damage_chance:
+        value: 0.01
+        type: add
+      critical_damage:
+        value: 1.01
+        type: multiply
+
+  - id: useless
+    name:
+      en: Useless
+      ru: Бесполезный
+    rarity: common
+    stats:
+      emotional_damage:
+        value: 1.01
+        type: multiply
+      physical_damage:
+        value: 1
+        type: multiply
+
+  - id: straight
+    name:
+      en: Straight
+      ru: Прямой
+    rarity: common
+    stats:
+      physical_damage:
+        value: 2
+        type: add
+      xp_drop:
+        value: 1.05
+        type: multiply
