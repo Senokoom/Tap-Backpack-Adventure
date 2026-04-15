@@ -3,6 +3,7 @@ class Enemy:
         self.id = id
         self.name = name
         self.hp = hp
+        self.current_hp = self.hp
         self.resistance = resistance
         self.is_boss = is_boss
         self.is_dead = False

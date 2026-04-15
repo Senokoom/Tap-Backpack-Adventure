@@ -1,5 +1,5 @@
 class Item:
-    def __init__(self, name, rarity, height, width, price, stats, _type=None, img=None):
+    def __init__(self, name, rarity, height, width, price, stats, level, _type=None, img=None):
         self.name = name
         self.rarity = rarity
         self._type = _type
@@ -8,6 +8,7 @@ class Item:
         self.price = price
         self.img = img
         self.stats = stats
+        self.level = level
 
     def get_info(self):
         return {

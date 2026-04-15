@@ -53,22 +53,7 @@ class Player:
             "critical_damage": critical_damage
         }
 
-    def update_stats(self):
-        for item in self.ActiveInventory.item_list:
-            for stat, info in item.stats.items():
-                for amount in info:
-                    if amount["type"] == "add":
-                        self.stats[stat] += amount["value"]
-                    elif amount["type"] == "multiply":
-                        self.stats[stat] *= amount["value"]
-
     def consume_item(self, item):
-        for key, stat in item.stats.items():
-            for amount in stat:
-                if amount["type"] == "add":
-                    self.stats[key] += amount["value"]
-                elif amount["type"] == "multiply":
-                    self.stats[key] *= amount["value"]
         potion_info = {"item": item.name, "stats": item.stats, "duration": item.duration}
         self.active_buffs.append(potion_info)
         return
@@ -81,12 +66,6 @@ class Player:
             while i < len(self.active_buffs):
                 self.active_buffs[i]["duration"] -= time_passed
                 if self.active_buffs[i]["duration"] <= 0:
-                    for key, value in self.active_buffs[i]["stats"].items():
-                        for amount in value:
-                            if amount["type"] == "add":
-                                self.stats[key] -= amount["value"]
-                            elif amount["type"] == "multiply":
-                                self.stats[key] /= amount["value"]
                     self.active_buffs.remove(self.active_buffs[i])
                 else:
                     i += 1

@@ -3,7 +3,7 @@ from classes.Item.Trinket import Trinket
 from classes.Item.Weapon import Weapon
 from classes.Item.Consumable import Consumable
 
-from DataManagment.DataLoader import get_weapon_data, get_prefix_data, get_suffix_data
+from DataManagment.dataloader import get_weapon_data, get_prefix_data, get_suffix_data
 from settings import max_cap_rare_item_chance, language, default_rarity_weights, rarity_to_price
 from math import floor
 from random import randint, choice
@@ -15,11 +15,13 @@ class ItemGenerator:
         self.rarity_to_price = rarity_to_price
 
     # Генерирует любой Айтем(по идее)
-    def generate_item(self, bonus, item_info, item_type):
+    def generate_item(self, bonus, item_info, item_type, level_when_dropped):
         """
         Написал эту хуйню сюда, чтоб не забыть что такое item_info :)
         Кстати, здравствуйте :))
 
+        :param level_when_dropped: когда дропнулся
+        :param item_type: че генерю
         :param bonus: Бонус к шансу редкости
         :param item_info: Короче, это список(list) из prefix, item_type(либо weapon, armor, etc.), suffix. СТОРО В ЭТОМ ПОРЯДКЕ
         :return: новый Item
@@ -43,21 +45,21 @@ class ItemGenerator:
         for part, value in final_parts.items():
             stats_list.append(final_parts[part]['stats'])
         if item_type == Consumable:
-            return self.generate_consumable(final_parts, stats_list)
+            return self.generate_consumable(final_parts, stats_list, level_when_dropped)
         else:
-            return self.generate_equipment(final_parts, item_type, stats_list)
+            return self.generate_equipment(final_parts, item_type, stats_list, level_when_dropped)
 
 
-    def generate_consumable(self, final_parts, stats_list):
+    def generate_consumable(self, final_parts, stats_list, level_when_dropped):
         result_consumable = Consumable(
             self.generate_item_name(final_parts), self.generate_item_rarity(final_parts),
             final_parts["consumable"]["size"]["height"], final_parts["consumable"]["size"]["width"],
             final_parts["consumable"]["uses"], final_parts["consumable"]["duration"],
-            self.merge_stats(stats_list), self.generate_item_price(final_parts)
+            self.merge_stats(stats_list), level_when_dropped ,self.generate_item_price(final_parts)
         )
         return result_consumable
 
-    def generate_equipment(self, final_parts, item_type, stats_list):
+    def generate_equipment(self, final_parts, item_type, stats_list, level_when_dropped):
         item_type_mapping = {
             "weapon": Weapon,
             "armor": Armor,
@@ -66,7 +68,7 @@ class ItemGenerator:
         result_item = item_type_mapping[item_type](self.generate_item_name(final_parts), self.generate_item_rarity(final_parts),
                                                        final_parts[item_type]["size"]["height"],
                                                        final_parts[item_type]["size"]["width"],
-                                                       self.merge_stats(stats_list), self.generate_item_price(final_parts))
+                                                       self.merge_stats(stats_list), level_when_dropped, self.generate_item_price(final_parts))
         return result_item
 
 
@@ -135,5 +137,5 @@ class ItemGenerator:
 
 
 debug = ItemGenerator()
-weapon = debug.generate_item(0.8, [get_prefix_data(), get_weapon_data(), get_suffix_data()], "weapon")
+weapon = debug.generate_item(0.8, [get_prefix_data(), get_weapon_data(), get_suffix_data()], "weapon", 1)
 print(weapon.get_info())
