@@ -14,6 +14,7 @@ class Item:
         return {
             "name": self.name,
             "rarity": self.rarity,
+            "level": self.level,
             "type": self._type,
             "height": self.height,
             "width": self.width,

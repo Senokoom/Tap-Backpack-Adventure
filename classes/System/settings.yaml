@@ -1,4 +1,4 @@
-math_settings:
+item_generation_settings:
   max_cap_rare_item_chance: 0.9
   rarity_to_price:
     common: 10
@@ -13,5 +13,18 @@ math_settings:
     epic: 4
     legendary: 1
 
-settings:
+progression_settings:
+  player:
+    base_growth: 1.1
+  item:
+    add_growth: 1.15
+    multiply_growth: 1.05
+  enemy:
+    hp_growth: 1.2
+  economy:
+    gold_growth: 1.05
+    price_growth: 1.1
+
+
+game_settings:
   language: ru

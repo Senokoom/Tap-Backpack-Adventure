@@ -134,8 +134,5 @@ class ItemGenerator:
         return result_stats
 
 
-
-
-debug = ItemGenerator()
-weapon = debug.generate_item(0.8, [get_prefix_data(), get_weapon_data(), get_suffix_data()], "weapon", 1)
-print(weapon.get_info())
+    def debug_generate_weapon_item(self, bonus, level_when_dropped):
+        return self.generate_item(bonus, [get_prefix_data(), get_weapon_data(), get_suffix_data()], "weapon", level_when_dropped)
