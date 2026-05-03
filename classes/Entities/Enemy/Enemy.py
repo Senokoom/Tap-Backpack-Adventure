@@ -1,5 +1,5 @@
 class Enemy:
-    def __init__(self, id, name, hp, resistance, is_boss):
+    def __init__(self, id, name, hp, resistance, is_boss, level, price, img=None):
         self.id = id
         self.name = name
         self.hp = hp
@@ -7,6 +7,9 @@ class Enemy:
         self.resistance = resistance
         self.is_boss = is_boss
         self.is_dead = False
+        self.level = level
+        self.price = price
+        self.image = img
 
     def take_damage(self, damage):
         # {

@@ -1,5 +1,7 @@
 from Enemy import Enemy
 
 class BossEnemy(Enemy):
-    def __init__(self, id, name, hp, resistance):
-        super().__init__(id, name, hp, resistance, is_boss=True)
+    is_boss = True
+
+    def __init__(self, id, name, hp, resistance, level, price):
+        super().__init__(id, name, hp, resistance, self.is_boss, level, price)

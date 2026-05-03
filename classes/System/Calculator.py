@@ -1,15 +1,16 @@
-from classes.Item.Item import Item
+from random import randint
+
 from classes.System.ItemGenerator import ItemGenerator
 from classes.System.settings import (player_progression_value,
                                      item_add_progression_value,
                                      item_multiply_progression_value,
+                                     item_price_progression_value,
                                      enemy_hp_progression_value,
                                      economy_gold_progression_value,
                                      economy_price_progression_value)
 
 
 class Calculator:
-    progression_level = 1
     def __init__(self):
         pass
 
@@ -20,16 +21,32 @@ class Calculator:
         """
         pass
 
-    def get_max_hp_scaled(self, enemy):
+
+
+    def get_current_player_stats(self, player):
         pass
+
+
+    def get_max_hp_scaled(self, enemy):
+        enemy.current_hp *= (enemy_hp_progression_value ** enemy.level)
+        return
+
 
     def get_gold_drop(self, enemy, player):
-        pass
+        gold_dropped = 0
+        if enemy.is_boss:
+            gold_dropped *= ((economy_gold_progression_value ** enemy.price)*(randint(2, 4)))*player.stats["gold_drop"]
+        else:
+            gold_dropped *= (economy_gold_progression_value ** enemy.price)*player.stats["gold_drop"]
+        return gold_dropped
 
-    def get_item_value(self, item):
-        pass
 
-    def get_item_stat(self, item: Item):
+    def get_item_price(self, item):
+        item.current_price *= (item_price_progression_value ** item.level)
+        return
+
+
+    def get_item_stat(self, item):
         new_stats = {}
         for current_stat in item.stats:
             for value in item.stats[current_stat]:
@@ -41,7 +58,8 @@ class Calculator:
                 elif value['type'] == 'multiply':
                     value['value'] *= (item_multiply_progression_value ** item.level)
                     new_stats[current_stat].append(value)
-        return new_stats
+        item.current_stats = new_stats
+        return
 
 
 

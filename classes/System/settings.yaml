@@ -19,6 +19,7 @@ progression_settings:
   item:
     add_growth: 1.15
     multiply_growth: 1.05
+    price_growth: 1.1
   enemy:
     hp_growth: 1.2
   economy:

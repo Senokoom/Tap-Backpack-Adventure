@@ -14,6 +14,7 @@ default_rarity_weights = settings["item_generation_settings"]["default_rarity_we
 player_progression_value = settings["progression_settings"]["player"]["base_growth"]
 item_add_progression_value = settings["progression_settings"]["item"]["add_growth"]
 item_multiply_progression_value = settings["progression_settings"]["item"]["multiply_growth"]
+item_price_progression_value = settings["progression_settings"]["item"]["price_growth"]
 enemy_hp_progression_value = settings["progression_settings"]["enemy"]["hp_growth"]
 economy_gold_progression_value = settings["progression_settings"]["economy"]["gold_growth"]
 economy_price_progression_value = settings["progression_settings"]["economy"]["price_growth"]

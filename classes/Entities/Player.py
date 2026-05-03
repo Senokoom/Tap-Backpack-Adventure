@@ -35,6 +35,8 @@ class Player:
                 "rare_item_chance": 0.05
             }
 
+        self.current_stats = self.stats
+
 
     def deal_damage(self):
         #будет высчитывать урон от всех статов, что есть, и отправлять в виде словарика(уже потом будут всякие дебафы идти и т.д.
