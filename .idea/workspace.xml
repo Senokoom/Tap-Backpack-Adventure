@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="Короче, добавил новые yaml файлы, но не заполнял. Так же по жестким изменениям: Создал Calculator.py. Пока не заполнял, только структуру и все. Далее добавил к оружиям level. Просто из-за сложностей в расчете, потом так их будет проще балансить будет. А в enemy добавил current_hp, где будет храниться уже скейлнутый hp. В принципе все">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" afterDir="false" />
+    <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="Забыл сделать коммит, когда делал обнову. Вроде как добавил фукнцию, что делает реальные статы оружия в зависимости от его уровня. Че-то поменял в settings.yaml и в Item.py">
+      <change afterPath="$PROJECT_DIR$/ui/run_ui_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Entities/Enemy/BaseEnemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Entities/Enemy/BaseEnemy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Entities/Enemy/BossEnemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Entities/Enemy/BossEnemy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Entities/Enemy/Enemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Entities/Enemy/Enemy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Entities/Player.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Entities/Player.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Item/Item.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Item.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/System/Calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/Calculator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/System/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/System/settings.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/settings.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +36,9 @@
     &quot;accountId&quot;: &quot;654ec895-effe-44e8-b4ea-ae81d023dae5&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -60,6 +55,7 @@
     "Python.ItemGenerator.executor": "Run",
     "Python.Player.executor": "Run",
     "Python.Weapon.executor": "Run",
+    "Python.run_ui_test.executor": "Run",
     "Python.settings.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -68,11 +64,12 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/levak/PycharmProjects/Tap Backpack Hero Game",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -143,6 +140,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.ui" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

@@ -18,9 +18,29 @@ class Calculator:
         """
         Короче, это ебать огромная функция наверн будет. Потому что она должна будет учитывать оружия, бафы и все
         множители и даже блять резисты врага и выдавать чисто число. Ебать фукнция огромная будет, я вахуи
+
+        #будет высчитывать урон от всех статов, что есть, и отправлять в виде словарика(уже потом будут всякие дебафы идти и т.д.
+        physical_damage = self.stats["physical_damage"]
+        fire_damage = self.stats["fire_damage"]
+        ice_damage = self.stats["ice_damage"]
+        lightning_damage = self.stats["lightning_damage"]
+        emotional_damage = self.stats["emotional_damage"]
+        critical_damage = (physical_damage + fire_damage + ice_damage + lightning_damage + emotional_damage)* (self.stats["critical_damage"] if random.random() <= self.stats["critical_damage_chance"] else 0)
+        return{
+            "physical_damage": physical_damage,
+            "fire_damage": fire_damage,
+            "ice_damage": ice_damage,
+            "lightning_damage": lightning_damage,
+            "emotional_damage": emotional_damage,
+            "critical_damage": critical_damage
+        }
         """
+
         pass
 
+    def get_active_weapons_stats(self, player):
+        combined_item_stats = {}
+        pass
 
 
     def get_current_player_stats(self, player):
@@ -28,22 +48,21 @@ class Calculator:
 
 
     def get_max_hp_scaled(self, enemy):
-        enemy.current_hp *= (enemy_hp_progression_value ** enemy.level)
-        return
+        return enemy.hp * (enemy_hp_progression_value ** enemy.level)
 
 
     def get_gold_drop(self, enemy, player):
-        gold_dropped = 0
         if enemy.is_boss:
-            gold_dropped *= ((economy_gold_progression_value ** enemy.price)*(randint(2, 4)))*player.stats["gold_drop"]
+            return ((economy_gold_progression_value ** enemy.price)*(randint(2, 4)))*player.stats["gold_drop"]
         else:
-            gold_dropped *= (economy_gold_progression_value ** enemy.price)*player.stats["gold_drop"]
-        return gold_dropped
+            return (economy_gold_progression_value ** enemy.price)*player.stats["gold_drop"]
 
 
     def get_item_price(self, item):
-        item.current_price *= (item_price_progression_value ** item.level)
-        return
+        return item.price * (item_price_progression_value ** item.level)
+    
+    def get_economy_price(self, item):
+        return item.price * (economy_price_progression_value ** item.level)
 
 
     def get_item_stat(self, item):
@@ -53,13 +72,10 @@ class Calculator:
                 if not current_stat in new_stats:
                     new_stats[current_stat] = []
                 if value['type'] == 'add':
-                    value['value'] *= (item_add_progression_value ** item.level)
-                    new_stats[current_stat].append(value)
+                    new_stats[current_stat].append(value['value'] * (item_add_progression_value ** item.level))
                 elif value['type'] == 'multiply':
-                    value['value'] *= (item_multiply_progression_value ** item.level)
-                    new_stats[current_stat].append(value)
-        item.current_stats = new_stats
-        return
+                    new_stats[current_stat].append(value['value'] * (item_multiply_progression_value ** item.level))
+        return new_stats
 
 
 
@@ -70,6 +86,9 @@ class Calculator:
 
 item_generator_debug = ItemGenerator()
 calculator_debug = Calculator()
-weapon = item_generator_debug.debug_generate_weapon_item(0.2, 5000)
+weapon = item_generator_debug.debug_generate_weapon_item(0.2, 500)
 print(weapon.get_info())
 print(calculator_debug.get_item_stat(weapon))
+print(weapon.get_info())
+weapon.current_stats = calculator_debug.get_item_stat(weapon)
+print(weapon.get_info())
