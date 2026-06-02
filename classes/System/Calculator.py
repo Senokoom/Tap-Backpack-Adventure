@@ -1,5 +1,4 @@
 from random import randint
-
 from classes.System.ItemGenerator import ItemGenerator
 from classes.System.settings import (player_progression_value,
                                      item_add_progression_value,
@@ -39,8 +38,13 @@ class Calculator:
         pass
 
     def get_active_weapons_stats(self, player):
-        combined_item_stats = {}
-        pass
+        combined_item_stats = []
+
+        for item in player.ActiveInventory.item_list:
+            combined_item_stats.append(self.get_item_stat(item))
+        for item in combined_item_stats:
+            pass
+
 
 
     def get_current_player_stats(self, player):

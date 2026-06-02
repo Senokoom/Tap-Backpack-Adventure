@@ -129,8 +129,12 @@ class ItemGenerator:
                             if result_stats[part][i]["type"] == "multiply":
                                 result_stats[part][i]["value"] *= stat[part]["value"]
                             elif result_stats[part][i]["type"] == "add":
+                                print(f"{result_stats[part]}: {result_stats[part][i]["value"]} += {stat[part]["value"]}")
                                 result_stats[part][i]["value"] += stat[part]["value"]
-                result_stats[part] = [stat[part]]
+                                print(result_stats[part][i]["value"])
+                        print(result_stats)
+                else:
+                    result_stats[part] = [stat[part]]
         return result_stats
 
 

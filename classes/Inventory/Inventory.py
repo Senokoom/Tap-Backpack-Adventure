@@ -1,15 +1,11 @@
 from cell import Cell
 
 #так же тупо для дебага, потом убрать
-class Item:
-    def __init__(self, name, width, height):
-        self.name = name
-        self.width = width
-        self.height = height
-
-
-
-
+# class Item:
+#     def __init__(self, name, width, height):
+#         self.name = name
+#         self.width = width
+#         self.height = height
 
 
 

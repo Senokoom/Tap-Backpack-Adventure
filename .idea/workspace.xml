@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="Забыл сделать коммит, когда делал обнову. Вроде как добавил фукнцию, что делает реальные статы оружия в зависимости от его уровня. Че-то поменял в settings.yaml и в Item.py">
-      <change afterPath="$PROJECT_DIR$/ui/run_ui_test.py" afterDir="false" />
+    <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="Короче, чуток обновил калькулятор и &quot;начал работу над ui.&quot;, пожалуйста, будущий я, не бей меня, я ленивая жопа">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Inventory/Inventory.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Inventory/Inventory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/System/Calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/Calculator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/System/ItemGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/ItemGenerator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/main_battle.ui" beforeDir="false" afterPath="$PROJECT_DIR$/ui/main_battle.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/run_ui_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/run_ui_test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +37,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Senokoom/Tap-Backpack-Adventure&quot;,
-    &quot;accountId&quot;: &quot;654ec895-effe-44e8-b4ea-ae81d023dae5&quot;
+    &quot;accountId&quot;: &quot;03eb986f-5ce6-47b9-b32c-15a9d2abccaa&quot;
   }
 }</component>
   <component name="ProblemsViewState">
@@ -47,31 +51,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.BossEnemy.executor": "Run",
-    "Python.Calculator.executor": "Run",
-    "Python.DataLoader.executor": "Run",
-    "Python.ItemGenerator.executor": "Run",
-    "Python.Player.executor": "Run",
-    "Python.Weapon.executor": "Run",
-    "Python.run_ui_test.executor": "Run",
-    "Python.settings.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/levak/PycharmProjects/Tap Backpack Hero Game",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.BossEnemy.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Calculator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.DataLoader.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ItemGenerator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Player.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Weapon.executor&quot;: &quot;Run&quot;,
+    &quot;Python.run_ui_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.settings.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/levak/PycharmProjects/Tap Backpack Hero Game&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\levak\PycharmProjects\Tap Backpack Hero Game\classes\Entities" />
@@ -135,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776276293612</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Короче, чуток обновил калькулятор и &quot;начал работу над ui.&quot;, пожалуйста, будущий я, не бей меня, я ленивая жопа">
+      <option name="closed" value="true" />
+      <created>1779972110723</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1779972110723</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +188,7 @@
     <MESSAGE value="переформатировал ItemGenerator.py, теперь выглядит норм и может генерить и Consumable.py. Поправил Armor.py, Consumable.py, Item.py, Trinket.py, Weapon.py. Исправил ошибку с неназначением _type. Так же перенес изначальные значения весов и их стоимость в settings.yaml" />
     <MESSAGE value="добавил новых префиксов" />
     <MESSAGE value="Короче, добавил новые yaml файлы, но не заполнял. Так же по жестким изменениям: Создал Calculator.py. Пока не заполнял, только структуру и все. Далее добавил к оружиям level. Просто из-за сложностей в расчете, потом так их будет проще балансить будет. А в enemy добавил current_hp, где будет храниться уже скейлнутый hp. В принципе все" />
-    <option name="LAST_COMMIT_MESSAGE" value="Короче, добавил новые yaml файлы, но не заполнял. Так же по жестким изменениям: Создал Calculator.py. Пока не заполнял, только структуру и все. Далее добавил к оружиям level. Просто из-за сложностей в расчете, потом так их будет проще балансить будет. А в enemy добавил current_hp, где будет храниться уже скейлнутый hp. В принципе все" />
+    <MESSAGE value="Короче, чуток обновил калькулятор и &quot;начал работу над ui.&quot;, пожалуйста, будущий я, не бей меня, я ленивая жопа" />
+    <option name="LAST_COMMIT_MESSAGE" value="Короче, чуток обновил калькулятор и &quot;начал работу над ui.&quot;, пожалуйста, будущий я, не бей меня, я ленивая жопа" />
   </component>
 </project>
