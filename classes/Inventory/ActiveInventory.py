@@ -7,15 +7,15 @@ class ActiveInventory(Inventory):
         self.owner = None
 
     def add_item(self, item, x, y):
-        super().add_item(item, x, y)
-        self.owner.update_stats()
+        return super().add_item(item, x, y)
+        # self.owner.update_stats()
 
     def remove_item(self, item):
-        super().remove_item(item)
-        self.owner.update_stats()
+        return super().remove_item(item)
+        # self.owner.update_stats()
 
     def move_item(self, item, x, y):
-        super().move_item(item, x, y)
+        return super().move_item(item, x, y)
 
     def get_rotated_idiot(self, item):
-        super().get_rotated_idiot(item)
+        return super().get_rotated_idiot(item)

@@ -1,4 +1,5 @@
-from cell import Cell
+from classes.Inventory.cell import Cell
+
 
 #так же тупо для дебага, потом убрать
 # class Item:
@@ -17,8 +18,9 @@ class Inventory:
         self.height = height
         x = width * height//3
         self.inventory_matrix = [[Cell() for _ in range(width)] for _ in range(height)]
-        for cell in self.inventory_matrix[0]:
-            cell.is_locked = False
+        for row in self.inventory_matrix:
+            for cell in row:
+                cell.is_locked = False
         self.item_list = []
 
 #Функционал инвенторя
@@ -31,6 +33,9 @@ class Inventory:
         """
         if self.can_fit(item, x, y):
             self.unchecked_add_item(item, x, y)
+            return True
+        else:
+            return False
 
 
     def unchecked_add_item(self, item, x, y):
@@ -115,9 +120,10 @@ class Inventory:
         return inventory_string
 
 
-deb_inventory = Inventory(7, 7)
-print(deb_inventory.inventory_to_string())
-deb_item = Item("debug", 1, 2)
-deb_inventory.add_item(deb_item, 0, 0)
-print(deb_inventory.item_list_to_string())
-print(deb_inventory.inventory_to_string())
+# ДЕБАЖИЛ
+# deb_inventory = Inventory(7, 7)
+# print(deb_inventory.inventory_to_string())
+# deb_item = Item("debug", 1, 2)
+# deb_inventory.add_item(deb_item, 0, 0)
+# print(deb_inventory.item_list_to_string())
+# print(deb_inventory.inventory_to_string())

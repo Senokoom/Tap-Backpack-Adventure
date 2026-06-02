@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="Короче, чуток обновил калькулятор и &quot;начал работу над ui.&quot;, пожалуйста, будущий я, не бей меня, я ленивая жопа">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Inventory/ActiveInventory.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Inventory/ActiveInventory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Inventory/BackpackInventory.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Inventory/BackpackInventory.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/Inventory/Inventory.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Inventory/Inventory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/System/Calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/Calculator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/System/ItemGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/ItemGenerator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/main_battle.ui" beforeDir="false" afterPath="$PROJECT_DIR$/ui/main_battle.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/run_ui_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/run_ui_test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,31 +52,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.BossEnemy.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Calculator.executor&quot;: &quot;Run&quot;,
-    &quot;Python.DataLoader.executor&quot;: &quot;Run&quot;,
-    &quot;Python.ItemGenerator.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Player.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Weapon.executor&quot;: &quot;Run&quot;,
-    &quot;Python.run_ui_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.settings.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/levak/PycharmProjects/Tap Backpack Hero Game&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.BossEnemy.executor": "Run",
+    "Python.Calculator.executor": "Run",
+    "Python.DataLoader.executor": "Run",
+    "Python.Inventory.executor": "Run",
+    "Python.ItemGenerator.executor": "Run",
+    "Python.Player.executor": "Run",
+    "Python.Weapon.executor": "Run",
+    "Python.run_ui_test.executor": "Run",
+    "Python.settings.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/levak/PycharmProjects/Tap Backpack Hero Game",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\levak\PycharmProjects\Tap Backpack Hero Game\classes\Entities" />
