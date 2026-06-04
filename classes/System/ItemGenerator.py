@@ -55,7 +55,7 @@ class ItemGenerator:
             self.generate_item_name(final_parts), self.generate_item_rarity(final_parts),
             final_parts["consumable"]["size"]["height"], final_parts["consumable"]["size"]["width"],
             final_parts["consumable"]["uses"], final_parts["consumable"]["duration"],
-            self.merge_stats(stats_list), level_when_dropped ,self.generate_item_price(final_parts)
+            merge_stats(stats_list), level_when_dropped, self.generate_item_price(final_parts)
         )
         return result_consumable
 
@@ -68,7 +68,7 @@ class ItemGenerator:
         result_item = item_type_mapping[item_type](self.generate_item_name(final_parts), self.generate_item_rarity(final_parts),
                                                        final_parts[item_type]["size"]["height"],
                                                        final_parts[item_type]["size"]["width"],
-                                                       self.merge_stats(stats_list), level_when_dropped, self.generate_item_price(final_parts))
+                                                       merge_stats(stats_list), level_when_dropped, self.generate_item_price(final_parts))
         return result_item
 
 
@@ -115,63 +115,37 @@ class ItemGenerator:
         if sum(final_weights.values()) != 100:
             final_weights["common"] += 100 - sum(final_weights.values())
         return final_weights
-#
-# '''
-# --------------------Изначальные данные--------------------------
-# #статы префикста
-#
-# [{'fire_damage': {'value': 3, 'type': 'add'},
-# 'ice_damage': {'value': 3, 'type': 'add'},
-# 'lightning_damage': {'value': 3, 'type': 'add'},
-# 'emotional_damage': {'value': 3, 'type': 'add'},
-# 'physical_damage': {'value': 0.26041986, 'type': 'multiply'},
-# 'xp_drop': {'value': 1.4, 'type': 'multiply'}},
-#
-# статы оружия
-# {'physical_damage': {'value': 5, 'type': 'add'},
-# 'critical_damage': {'value': 0.1, 'type': 'add'}},
-#
-#  статы суффикста
-# {'physical_damage': {'value': 3, 'type': 'add'},
-# 'critical_damage': {'value': 1.1, 'type': 'multiply'}}]
-# --------------------Изначальные данные--------------------------
-# ------------РЕЗУЛЬТАТ-------------------
-# {'fire_damage': [{'value': 3, 'type': 'add'}],
-# 'ice_damage': [{'value': 3, 'type': 'add'}],
-# 'lightning_damage': [{'value': 3, 'type': 'add'}],
-#  'emotional_damage': [{'value': 3, 'type': 'add'}],
-#  'physical_damage': [{'value': 0.26041986, 'type': 'multiply'}, {'value': 8, 'type': 'add'}, {'value': 3, 'type': 'add'}],  !!!!! так быть не должно
-#  'xp_drop': [{'value': 1.4, 'type': 'multiply'}],
-#  'critical_damage': [{'value': 0.1, 'type': 'add'}, {'value': 1.1, 'type': 'multiply'}]}
-# ------------РЕЗУЛЬТАТ-------------------
-#
-# '''
-    def merge_stats(self, stats_list):
-        result_stats = {}
-        print("--------------------Изначальные данные--------------------------")
-        print(stats_list)
-        print("--------------------Изначальные данные--------------------------")
-        for stat in stats_list:
-            for part, value in stat.items():
-                if part in result_stats.keys():
-                    for i in range(len(result_stats[part])):
-                        if result_stats[part][i]["type"] != stat[part]["type"]:
-                            result_stats[part].append(stat[part])
-                        else:
-                            if result_stats[part][i]["type"] == "multiply":
-                                result_stats[part][i]["value"] *= stat[part]["value"]
-                            elif result_stats[part][i]["type"] == "add":
-                                # print(f"{result_stats[part]}: {result_stats[part][i]["value"]} += {stat[part]["value"]}")
-                                result_stats[part][i]["value"] += stat[part]["value"]
-                        #         print(result_stats[part][i]["value"])
-                        # print(result_stats)
-                else:
-                    result_stats[part] = [stat[part]]
-        print("------------РЕЗУЛЬТАТ-------------------")
-        print(result_stats)
-        print("------------РЕЗУЛЬТАТ-------------------")
-        return result_stats
-
 
     def debug_generate_weapon_item(self, bonus, level_when_dropped):
         return self.generate_item(bonus, [get_prefix_data(), get_weapon_data(), get_suffix_data()], "weapon", level_when_dropped)
+
+
+def merge_stats(stats_list):
+    result_stats = {}
+
+    for item_stats in stats_list:
+        for stat_name, modifiers_list in item_stats.items():
+            # На случай, если вдруг придёт одиночный dict, а не список
+            if not isinstance(modifiers_list, list):
+                modifiers_list = [modifiers_list]
+
+            if stat_name not in result_stats:
+                result_stats[stat_name] = []
+
+            for modifier in modifiers_list:
+                found_match = False
+                for existing in result_stats[stat_name]:
+                    if existing["type"] == modifier["type"]:
+                        if modifier["type"] == "multiply":
+                            existing["value"] *= modifier["value"]
+                        elif modifier["type"] == "add":
+                            existing["value"] += modifier["value"]
+                        found_match = True
+                        break  # ← Останавливаем поиск после слияния
+
+                if not found_match:
+                    # Копируем, чтобы не ломать исходные данные предмета
+                    result_stats[stat_name].append(modifier.copy())
+
+    return result_stats
+

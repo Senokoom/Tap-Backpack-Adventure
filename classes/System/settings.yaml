@@ -17,11 +17,11 @@ progression_settings:
   player:
     base_growth: 1.1
   item:
-    add_growth: 1.15
-    multiply_growth: 1.05
+    add_growth: 1.06
+    multiply_growth: 1.06
     price_growth: 1.1
   enemy:
-    hp_growth: 1.2
+    hp_growth: 1.15
   economy:
     gold_growth: 1.05
     price_growth: 1.1

@@ -23,10 +23,9 @@ class Enemy:
         final_damage = 0
         for key, value in damage.items():
             final_damage += (value if key not in self.resistance else (1-self.resistance[key])*value)
-        self.hp -= final_damage
-        if self.hp <= 0:
+        self.current_hp -= final_damage
+        if self.current_hp <= 0:
             self.has_died()
 
     def has_died(self):
         self.is_dead = True
-        return

@@ -1,4 +1,4 @@
-from Enemy import Enemy
+from classes.Entities.Enemy.Enemy import Enemy
 
 class BossEnemy(Enemy):
     is_boss = True

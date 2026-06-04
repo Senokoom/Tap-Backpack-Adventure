@@ -15,18 +15,18 @@ class Player:
         self.BackpackInventory = BackpackInventory
         self.last_time_online = last_time_online
 
-        self.active_buffs = active_buffs
-        if active_buffs is None:
-            self.active_buffs = []
+        # self.active_buffs = active_buffs
+        # if active_buffs is None:
+        #     self.active_buffs = []
 
         self.stats = stats
         if stats is None:
             self.stats = {
                 "physical_damage": 1,
-                "fire_damage": 0,
-                "ice_damage": 0,
-                "lightning_damage": 0,
-                "emotional_damage": 0,
+                "fire_damage": 1,
+                "ice_damage": 1,
+                "lightning_damage": 1,
+                "emotional_damage": 1,
                 "critical_damage": 0.5,
                 "critical_damage_chance": 0.01,
                 "gold_drop": 1.0,
@@ -60,17 +60,17 @@ class Player:
         self.active_buffs.append(potion_info)
         return
 
-    def active_buffs_update(self, time_passed):
-        if not self.active_buffs:
-            return
-        else:
-            i = 0
-            while i < len(self.active_buffs):
-                self.active_buffs[i]["duration"] -= time_passed
-                if self.active_buffs[i]["duration"] <= 0:
-                    self.active_buffs.remove(self.active_buffs[i])
-                else:
-                    i += 1
+    # def active_buffs_update(self, time_passed):
+    #     if not self.active_buffs:
+    #         return
+    #     else:
+    #         i = 0
+    #         while i < len(self.active_buffs):
+    #             self.active_buffs[i]["duration"] -= time_passed
+    #             if self.active_buffs[i]["duration"] <= 0:
+    #                 self.active_buffs.remove(self.active_buffs[i])
+    #             else:
+    #                 i += 1
 
     def skill_levelup(self, skill):
         if self.skill_point > 0:
