@@ -9,9 +9,6 @@ from classes.Inventory.cell import Cell
 #         self.height = height
 
 
-
-
-
 class Inventory:
     def __init__(self, width, height):
         self.width = width

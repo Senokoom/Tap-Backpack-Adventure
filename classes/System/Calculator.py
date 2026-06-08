@@ -1,12 +1,5 @@
-from random import randint
 from classes.System.ItemGenerator import ItemGenerator, merge_stats
-from classes.System.settings import (player_progression_value,
-                                     item_add_progression_value,
-                                     item_multiply_progression_value,
-                                     item_price_progression_value,
-                                     enemy_hp_progression_value,
-                                     economy_gold_progression_value,
-                                     economy_price_progression_value)
+from classes.System.settings import Config
 
 
 class Calculator:
@@ -14,8 +7,12 @@ class Calculator:
         pass
 
     def get_damage(self, player, enemy):
-        player.current_stats = self.get_current_player_stats(player)
-        enemy.take_damage(player.current_stats)
+        current_player_stats = self.get_current_player_stats(player)
+        resistances = enemy.resistance
+        final_damage = 0
+        for key, value in current_player_stats.items():
+            final_damage += (value if key not in resistances else (1-resistances[key])*value)
+        return final_damage
 
     def get_active_weapons_stats(self, player):
         combined_item_stats = []
@@ -48,18 +45,30 @@ class Calculator:
         return base_stats
 
     def get_max_hp_scaled(self, enemy):
-        return enemy.hp * (enemy_hp_progression_value ** enemy.level)
+        if enemy.is_boss:
+            return (enemy.hp * (Config.enemy_hp_progression_value ** enemy.level)) * Config.boss_hp_multiplier_value
+        else:
+            return enemy.hp * (Config.enemy_hp_progression_value ** enemy.level)
+
 
     def get_gold_drop(self, enemy, player):
         if enemy.is_boss:
-            return ((economy_gold_progression_value ** enemy.price)*(randint(2, 4)))*player.stats["gold_drop"]
+            return ((enemy.price * (Config.economy_gold_progression_value ** enemy.level)) * Config.boss_price_multiplier_value)*player.stats["gold_drop"]
         else:
-            return (economy_gold_progression_value ** enemy.price)*player.stats["gold_drop"]
+            return (enemy.price * (Config.economy_gold_progression_value ** enemy.level))*player.stats["gold_drop"]
+
+
+    def get_enemy_xp_drop(self, enemy, player):
+        if enemy.is_boss:
+            return ((enemy.xp * (Config.xp_drop_multiplier_value ** enemy.level))*Config.boss_xp_drop_multiplier_value) * player.stats["xp_drop"]
+        else:
+            return (enemy.xp * (Config.xp_drop_multiplier_value ** enemy.level))*player.stats["xp_drop"]
+
 
     def get_item_price(self, item):
-        return item.price * (item_price_progression_value ** item.level)
+        return item.price * (Config.item_price_progression_value ** item.level)
     
-    def get_economy_price(self, item):
+    def get_economy_price(self, item, economy_price_progression_value):
         return item.price * (economy_price_progression_value ** item.level)
 
     def get_item_stat(self, item):
@@ -69,11 +78,10 @@ class Calculator:
                 if not current_stat in new_stats:
                     new_stats[current_stat] = []
                 if value['type'] == 'add':
-                    new_stats[current_stat].append({"value": value['value'] * (item_add_progression_value ** item.level), "type": 'add'})
+                    new_stats[current_stat].append({"value": value['value'] * (Config.item_add_progression_value ** item.level), "type": 'add'})
                 elif value['type'] == 'multiply':
-                    new_stats[current_stat].append({"value": value['value'] * (item_multiply_progression_value ** item.level), "type": 'multiply'})
+                    new_stats[current_stat].append({"value": value['value'] * (Config.item_multiply_progression_value ** item.level), "type": 'multiply'})
         return new_stats
-
 
 
 ### ТУТ ВНИЗУ КОД КОТОРЫЙ Я ИСПОЛЬЗОВАЛ ДЛЯ ДЕБАГА ЭТОГО КЛАССА. ПАМАГИТИ, Я БЕРЕБОРЩИЛ С РАЗМЕРОМ ПРОЕКТА......
@@ -108,7 +116,7 @@ class Calculator:
 # print(f"Размер рюкзака: {debug_player.BackpackInventory.width}x{debug_player.BackpackInventory.height}")
 #
 #
-#
+# from classes.System.ItemGenerator import ItemGenerator
 # item_generator_debug = ItemGenerator()
 # calculator_debug = Calculator()
 # weapon = item_generator_debug.debug_generate_weapon_item(0.2, 100)
@@ -125,7 +133,7 @@ class Calculator:
 # # weapon.current_stats = calculator_debug.get_item_stat(weapon)
 # # print(weapon.get_info())
 # print(calculator_debug.get_current_player_stats(debug_player))
-#
+
 #
 #
 # # ВРАГ ДЛЯ ДЕБАГА
@@ -156,10 +164,6 @@ class Calculator:
 # debug_enemy.current_hp = calculator_debug.get_max_hp_scaled(debug_enemy)
 #
 # print(f"HP до удара: {debug_enemy.current_hp}")
-# calculator_debug.get_damage(debug_player, debug_enemy)
-# calculator_debug.get_damage(debug_player, debug_enemy)
-# calculator_debug.get_damage(debug_player, debug_enemy)
-# calculator_debug.get_damage(debug_player, debug_enemy)
 # calculator_debug.get_damage(debug_player, debug_enemy)
 # print(f"HP после удара: {debug_enemy.current_hp}")
 # print(f"Враг мёртв? {debug_enemy.is_dead}")

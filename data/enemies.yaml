@@ -1,0 +1,12 @@
+- id: slime
+  name:
+    en: Slime
+    ru: Слайм
+  hp: 25
+  resists:
+    physical_damage: 0.1   # 10% сопротивления
+    fire_damage: 0.3       # 30% сопротивления
+    lightning_damage: 0.5  # 50%
+    emotional_damage: 0.2  # 20%
+  price: 5
+  xp: 5

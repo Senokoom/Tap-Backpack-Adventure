@@ -22,9 +22,15 @@ progression_settings:
     price_growth: 1.1
   enemy:
     hp_growth: 1.15
+    xp_drop_multiplier: 1.1
+    boss_price_multiplier: 2
+    boss_hp_multiplier: 2
+    boss_frequency: 10
+    boss_xp_drop_multiplier: 2
   economy:
     gold_growth: 1.05
     price_growth: 1.1
+    boss_gold_drop: 3
 
 
 game_settings:

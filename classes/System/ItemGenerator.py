@@ -3,16 +3,15 @@ from classes.Item.Trinket import Trinket
 from classes.Item.Weapon import Weapon
 from classes.Item.Consumable import Consumable
 
-from DataManagment.dataloader import get_weapon_data, get_prefix_data, get_suffix_data
-from settings import max_cap_rare_item_chance, language, default_rarity_weights, rarity_to_price
+from DataManagment.dataloader import weapon_data, prefix_data, suffix_data
+from classes.System.settings  import Config
 from math import floor
 from random import randint, choice
 
 class ItemGenerator:
 
     def __init__(self):
-        self.rarity_weights = default_rarity_weights
-        self.rarity_to_price = rarity_to_price
+        pass
 
     # Генерирует любой Айтем(по идее)
     def generate_item(self, bonus, item_info, item_type, level_when_dropped):
@@ -73,7 +72,6 @@ class ItemGenerator:
 
 
 
-
     def generate_item_rarity(self, item_parts_dict):
         parts_rarity = []
         weights_map = {
@@ -91,24 +89,24 @@ class ItemGenerator:
     def generate_item_name(self, item_parts_dict):
         item_name = ''
         for part, value in item_parts_dict.items():
-            item_name += item_parts_dict[part]['name'][language] + " "
+            item_name += item_parts_dict[part]['name'][Config.language] + " "
         return item_name
 
 
     def generate_item_price(self, item_parts_dict):
         priced_parts = 0
         for part, value in item_parts_dict.items():
-            priced_parts += self.rarity_to_price[item_parts_dict[part]['rarity']]
+            priced_parts += Config.rarity_to_price[item_parts_dict[part]['rarity']]
         return priced_parts
 
 
     def apply_weights_bonus(self, bonus):
-        bonus = bonus if bonus <= max_cap_rare_item_chance else max_cap_rare_item_chance
+        bonus = bonus if bonus <= Config.max_cap_rare_item_chance else Config.max_cap_rare_item_chance
         bonus_buffer = 0
         final_weights = {}
-        for key, weight in self.rarity_weights.items():
-            final_weights[key] = abs(self.rarity_weights[key]+bonus_buffer-floor((self.rarity_weights[key]+bonus_buffer)*bonus))
-            bonus_buffer = floor((self.rarity_weights[key] + bonus_buffer)*bonus)
+        for key, weight in Config.default_rarity_weights.items():
+            final_weights[key] = abs(Config.default_rarity_weights[key] + bonus_buffer - floor((Config.default_rarity_weights[key] + bonus_buffer) * bonus))
+            bonus_buffer = floor((Config.default_rarity_weights[key] + bonus_buffer) * bonus)
         total = sum(final_weights.values())
         for key, weight in final_weights.items():
             final_weights[key] = round(final_weights[key]/total * 100)
@@ -116,8 +114,13 @@ class ItemGenerator:
             final_weights["common"] += 100 - sum(final_weights.values())
         return final_weights
 
-    def debug_generate_weapon_item(self, bonus, level_when_dropped):
-        return self.generate_item(bonus, [get_prefix_data(), get_weapon_data(), get_suffix_data()], "weapon", level_when_dropped)
+
+
+    #Покачто будут только Weapon. Иначе я просто не успею закончить проект.
+    def generate_weapon_item(self, player, level_when_dropped):
+        return self.generate_item(player.stats["rare_item_chance"], [prefix_data, weapon_data, suffix_data], "weapon", level_when_dropped)
+
+
 
 
 def merge_stats(stats_list):
