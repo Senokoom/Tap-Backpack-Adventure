@@ -4,7 +4,7 @@ from classes.System.Calculator import Calculator
 from classes.System.EnemyGenerator import EnemyGenerator
 from classes.System.ItemGenerator import ItemGenerator
 from classes.System.settings import Config
-
+from random import randint
 
 class GameState:
     def __init__(self, player: Player, calculator: Calculator, itemgenerator: ItemGenerator,enemygenerator: EnemyGenerator, current_enemy: Enemy, progression=1):
@@ -15,6 +15,7 @@ class GameState:
         self.current_enemy = current_enemy
         self.progression = progression
         self.pending_loot = []
+        self.last_damage = 0
 
 
     def spawn_enemy(self):
@@ -27,7 +28,8 @@ class GameState:
     def handle_tap(self):
         if not self.current_enemy or self.current_enemy.is_dead:
             self.spawn_enemy()
-        self.current_enemy.take_damage(self.calculator.get_damage(self.player, self.current_enemy))
+        self.last_damage = self.calculator.get_damage(self.player, self.current_enemy)
+        self.current_enemy.take_damage(self.last_damage)
         if self.current_enemy.is_dead:
             self.on_enemy_death()
 
@@ -35,9 +37,9 @@ class GameState:
     def on_enemy_death(self):
         self.player.xppoints += self.calculator.get_enemy_xp_drop(self.current_enemy, self.player)
         self.player.gold += self.calculator.get_gold_drop(self.current_enemy, self.player)
-        #С каждого врага будет что-то дропаться
-        print("Сгенерил оружие")
-        # self.pending_loot.append(self.itemgenerator.generate_weapon_item(self.player, self.player.level))
+        if randint(0, 100) <= self.player.stats["item_drop"] or self.current_enemy.is_boss:
+            print("Сгенерил оружие")
+            self.pending_loot.append(self.itemgenerator.generate_weapon_item(self.player, self.player.level))
         self.progression += 1
         self.spawn_enemy()
 

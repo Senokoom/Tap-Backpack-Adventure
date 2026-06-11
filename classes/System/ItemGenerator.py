@@ -151,4 +151,3 @@ def merge_stats(stats_list):
                     result_stats[stat_name].append(modifier.copy())
 
     return result_stats
-

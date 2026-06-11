@@ -31,7 +31,7 @@ class Player:
                 "critical_damage_chance": 0.01,
                 "gold_drop": 1.0,
                 "xp_drop": 1.0,
-                "item_drop": 1.0,
+                "item_drop": 0.1,
                 "rare_item_chance": 0.05
             }
 
