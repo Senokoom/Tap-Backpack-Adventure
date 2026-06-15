@@ -16,7 +16,7 @@ class ItemGenerator:
     # Генерирует любой Айтем(по идее)
     def generate_item(self, bonus, item_info, item_type, level_when_dropped):
         """
-        Написал эту хуйню сюда, чтоб не забыть что такое item_info :)
+        Написал эту штуку сюда, чтоб не забыть что такое item_info :)
         Кстати, здравствуйте :))
 
         :param level_when_dropped: когда дропнулся
@@ -44,33 +44,42 @@ class ItemGenerator:
         for part, value in final_parts.items():
             stats_list.append(final_parts[part]['stats'])
         if item_type == Consumable:
-            return self.generate_consumable(final_parts, stats_list, level_when_dropped)
+            return self.generate_consumable(final_parts, stats_list, level_when_dropped) #ИДЕТ ГЕНЕРАЦИЯ ТОЛЬКО ОРУЖИЯ
         else:
             return self.generate_equipment(final_parts, item_type, stats_list, level_when_dropped)
 
-
+##ПОКА НЕТУ, ДЕЛАТЬ НЕ БУДУ. ГЕНЕРЮ ТОЛЬКО ОРУЖИЯ
     def generate_consumable(self, final_parts, stats_list, level_when_dropped):
         result_consumable = Consumable(
-            self.generate_item_name(final_parts), self.generate_item_rarity(final_parts),
+            self.generate_id(final_parts), self.generate_item_name(final_parts), self.generate_item_rarity(final_parts),
             final_parts["consumable"]["size"]["height"], final_parts["consumable"]["size"]["width"],
             final_parts["consumable"]["uses"], final_parts["consumable"]["duration"],
-            merge_stats(stats_list), level_when_dropped, self.generate_item_price(final_parts)
+            ItemGenerator.merge_stats(stats_list), level_when_dropped, self.generate_item_price(final_parts)
         )
         return result_consumable
 
+
+## ГЕНЕРИРУЕТСЯ ТОЛЬКО ОРУЖИЕ, БОЛЬШЕ НИЧЕГО :(
     def generate_equipment(self, final_parts, item_type, stats_list, level_when_dropped):
         item_type_mapping = {
             "weapon": Weapon,
             "armor": Armor,
             "trinket": Trinket
         }
-        result_item = item_type_mapping[item_type](self.generate_item_name(final_parts), self.generate_item_rarity(final_parts),
+        result_item = item_type_mapping[item_type](self.generate_id(final_parts), self.generate_item_name(final_parts), self.generate_item_rarity(final_parts),
                                                        final_parts[item_type]["size"]["height"],
                                                        final_parts[item_type]["size"]["width"],
-                                                       merge_stats(stats_list), level_when_dropped, self.generate_item_price(final_parts))
+                                                       ItemGenerator.merge_stats(stats_list), level_when_dropped, self.generate_item_price(final_parts))
         return result_item
 
-
+    def generate_id(self, item_parts_dict):
+        #Короче, по идее id будет состоять чисто из 3х частей, чтобы можно было потом найти их по yaml и пересоздать,
+        # если будет выбран другой язык. Пока такая затычка :). Зато не придется сохранять name. Просто добавлю сюда
+        # Generate_Item_by_id.. или так, хз если честно :)
+        item_id = {}
+        for part, value in item_parts_dict.items():
+            item_id[part] = item_parts_dict[part]['id']
+        return item_id
 
     def generate_item_rarity(self, item_parts_dict):
         parts_rarity = []
@@ -122,32 +131,32 @@ class ItemGenerator:
 
 
 
+    @staticmethod
+    def merge_stats(stats_list):
+        result_stats = {}
 
-def merge_stats(stats_list):
-    result_stats = {}
+        for item_stats in stats_list:
+            for stat_name, modifiers_list in item_stats.items():
+                # На случай, если вдруг придёт одиночный dict, а не список
+                if not isinstance(modifiers_list, list):
+                    modifiers_list = [modifiers_list]
 
-    for item_stats in stats_list:
-        for stat_name, modifiers_list in item_stats.items():
-            # На случай, если вдруг придёт одиночный dict, а не список
-            if not isinstance(modifiers_list, list):
-                modifiers_list = [modifiers_list]
+                if stat_name not in result_stats:
+                    result_stats[stat_name] = []
 
-            if stat_name not in result_stats:
-                result_stats[stat_name] = []
+                for modifier in modifiers_list:
+                    found_match = False
+                    for existing in result_stats[stat_name]:
+                        if existing["type"] == modifier["type"]:
+                            if modifier["type"] == "multiply":
+                                existing["value"] *= modifier["value"]
+                            elif modifier["type"] == "add":
+                                existing["value"] += modifier["value"]
+                            found_match = True
+                            break  # ← Останавливаем поиск после слияния
 
-            for modifier in modifiers_list:
-                found_match = False
-                for existing in result_stats[stat_name]:
-                    if existing["type"] == modifier["type"]:
-                        if modifier["type"] == "multiply":
-                            existing["value"] *= modifier["value"]
-                        elif modifier["type"] == "add":
-                            existing["value"] += modifier["value"]
-                        found_match = True
-                        break  # ← Останавливаем поиск после слияния
+                    if not found_match:
+                        # Копируем, чтобы не ломать исходные данные предмета
+                        result_stats[stat_name].append(modifier.copy())
 
-                if not found_match:
-                    # Копируем, чтобы не ломать исходные данные предмета
-                    result_stats[stat_name].append(modifier.copy())
-
-    return result_stats
+        return result_stats

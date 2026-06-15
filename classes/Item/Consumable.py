@@ -2,8 +2,8 @@ from classes.Item.Item import Item
 
 
 class Consumable(Item):
-    def __init__(self, name, rarity, height, width,  uses, duration, stats, level, price, _type=None, img=None, ):
-        super().__init__(name, rarity, height, width, price, stats, level, _type, img)
+    def __init__(self, id, name, rarity, height, width,  uses, duration, stats, level, price, _type=None, img=None, ):
+        super().__init__(id, name, rarity, height, width, price, stats, level, _type, img)
         self._type = "Consumable"
         self.uses = uses
         self.duration = duration

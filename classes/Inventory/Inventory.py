@@ -1,3 +1,5 @@
+from numpy.core.multiarray import item
+
 from classes.Inventory.cell import Cell
 
 
@@ -13,7 +15,7 @@ class Inventory:
     def __init__(self, width, height):
         self.width = width
         self.height = height
-        x = width * height//3
+        # x = width * height//3
         self.inventory_matrix = [[Cell() for _ in range(width)] for _ in range(height)]
         for row in self.inventory_matrix:
             for cell in row:
@@ -98,6 +100,44 @@ class Inventory:
         else:
             self.inventory_matrix[x][y].is_locked = False
         return True
+
+### СОЗДАНИЕ DICT ДЛЯ СОХРАНЕНИЯ В JSON И ОБРАТНО.
+    @classmethod
+    def from_dict(cls, data):
+       inventory = cls(
+            width=data['width'],
+            height=data['height']
+        )
+       for cell in data["matrix"]:
+           i = cell['i']
+           j = cell['j']
+           restored_cell = Cell.from_dict(cell['cell_info'])
+           if 0 <= i < inventory.height and 0 <= j < inventory.width:
+               inventory.inventory_matrix[i][j] = restored_cell
+               if restored_cell.item and restored_cell.is_origin:
+                   inventory.item_list.append(restored_cell.item)
+       return inventory
+
+    def to_dict(self):
+        result_dict = {
+            "width": self.width,
+            "height": self.height,
+            "matrix": [],
+            "items": []
+        }
+        for i in range(self.height):
+            for j in range(self.width):
+                result_dict["matrix"].append(
+                    {
+                        "i": i,
+                        "j": j,
+                        "cell_info": self.inventory_matrix[i][j].to_dict()
+                    }
+                )
+        for item in self.item_list:
+            result_dict["items"].append(item.to_dict())
+        return result_dict
+
 
     #debag BS
 #-------------------------------------------------------------------------

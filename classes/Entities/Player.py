@@ -1,8 +1,12 @@
 from numpy import random
 
+from classes.Inventory.ActiveInventory import ActiveInventory
+from classes.Inventory.BackpackInventory import BackpackInventory
+
+
 class Player:
 
-    def __init__(self, id, name, xppoints, gold, level, skill_point, ActiveInventory, BackpackInventory, last_time_online,
+    def __init__(self, id, name, xppoints, gold, level, skill_point, ActiveInventory: ActiveInventory, BackpackInventory: BackpackInventory, last_time_online,
                  active_buffs=None, stats=None):
 
         self.id = id
@@ -37,7 +41,6 @@ class Player:
 
         self.current_stats = self.stats
 
-
     def deal_damage(self):
         #будет высчитывать урон от всех статов, что есть, и отправлять в виде словарика(уже потом будут всякие дебафы идти и т.д.
         physical_damage = self.stats["physical_damage"]
@@ -59,6 +62,38 @@ class Player:
         potion_info = {"item": item.name, "stats": item.stats, "duration": item.duration}
         self.active_buffs.append(potion_info)
         return
+
+
+#ДЛЯ СОХРАНЕНИЯ :)
+    @classmethod
+    def from_dict(cls, data):
+        return Player(
+            id=data['id'],
+            name=data['name'],
+            xppoints=data['xppoints'],
+            gold=data['gold'],
+            level=data['level'],
+            skill_point=data['skill_points'],
+            ActiveInventory=ActiveInventory.from_dict(data['ActiveInventory']),
+            BackpackInventory=BackpackInventory.from_dict(data['BackpackInventory']),
+            last_time_online=data['last_time_online'],
+            stats=data['stats']
+        )
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "xppoints": self.xppoints,
+            "gold": self.gold,
+            "level": self.level,
+            "skill_points": self.skill_point,
+            "ActiveInventory": self.ActiveInventory.to_dict(),
+            "BackpackInventory": self.BackpackInventory.to_dict(),
+            "last_time_online": self.last_time_online,
+            "stats": self.stats
+        }
+
 
     # def active_buffs_update(self, time_passed):
     #     if not self.active_buffs:

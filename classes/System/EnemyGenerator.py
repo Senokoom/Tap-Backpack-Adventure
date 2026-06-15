@@ -22,6 +22,7 @@ class EnemyGenerator:
             enemy_dict["name"][Config.language],
             enemy_dict["hp"],
             enemy_dict["resists"],
+            True,
             level,
             enemy_dict["price"],
             enemy_dict["xp"]
@@ -33,10 +34,8 @@ class EnemyGenerator:
             enemy_dict["name"][Config.language],
             enemy_dict["hp"],
             enemy_dict["resists"],
+            False,
             level,
             enemy_dict["price"],
             enemy_dict["xp"]
         )
-
-debug = EnemyGenerator()
-print(debug.spawn(False, 1))
