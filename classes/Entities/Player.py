@@ -107,10 +107,19 @@ class Player:
     #             else:
     #                 i += 1
 
-    def skill_levelup(self, skill):
+    def skill_levelup(self, skill, value):
         if self.skill_point > 0:
-            self.stats[skill] += 1
+            self.stats[skill] += value
             self.skill_point -= 1
         return
+
+    def __lt__(self, other):
+        return self.level < other.level
+
+    def __eq__(self, other):
+        return self.level == other.level
+
+    def __str__(self):
+        return f"{self.name}"
 
 

@@ -44,12 +44,18 @@ class GameState:
         self.player.xppoints += self.calculator.get_enemy_xp_drop(self.current_enemy, self.player)
         self.player.gold += self.calculator.get_gold_drop(self.current_enemy, self.player)
         if randint(0, 100) <= self.player.stats["item_drop"] or self.current_enemy.is_boss:
-            self.pending_loot.append(self.itemgenerator.generate_weapon_item(self.player, self.player.level))
+            print(weapon := self.itemgenerator.generate_weapon_item(self.player, self.player.level).get_info())
+            self.pending_loot.append(weapon)
+        if self.player.xppoints >= self.calculator.get_xp_for_next_level(self.player):
+            self.player.level += 1
+            self.player.skill_point += 1
         self.progression += 1
         self.spawn_enemy()
 
 
     def get_enemy_max_health(self):
+        if self.current_enemy is None:
+            self.spawn_enemy()
         return self.calculator.get_max_hp_scaled(self.current_enemy)
 
     def get_enemy_current_hp(self):
@@ -66,6 +72,9 @@ class GameState:
 
     def get_player_last_damage(self):
         return self.last_damage
+
+    def get_player_skill_points(self):
+        return self.player.skill_point
 
     def get_player_gold(self):
         return self.player.gold
@@ -84,6 +93,9 @@ class GameState:
 
     def get_active_inventory_width_height(self):
         return self.player.ActiveInventory.width, self.player.ActiveInventory.height
+
+    def get_player_level_up(self, skill):
+        self.player.skill_levelup(skill, Config.player_level_up_values[skill])
 
     def get_active_inventory_ui_data(self):
         ui_matrix = []

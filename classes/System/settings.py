@@ -14,7 +14,9 @@ class Config:
     default_rarity_weights = settings["item_generation_settings"]["default_rarity_weights"]
 
     #Item Progression and Player thingy
-    player_progression_value = settings["progression_settings"]["player"]["base_growth"] # не использую пока
+    player_level_up_values = settings["level_up_settings"]["player"]
+    player_xp_progression_value = settings["progression_settings"]["player"]["xp_growth"]
+    player_base_xp_value = settings["progression_settings"]["player"]["first_xp_level"]
     item_add_progression_value = settings["progression_settings"]["item"]["add_growth"]
     item_multiply_progression_value = settings["progression_settings"]["item"]["multiply_growth"]
 

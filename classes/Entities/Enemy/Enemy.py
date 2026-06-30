@@ -13,22 +13,6 @@ class Enemy:
         self.xp = xp
         self.image = img
 
-    # def take_damage_old(self, damage):
-    #     # {
-    #     #     "physical_damage": physical_damage,
-    #     #     "fire_damage": fire_damage,
-    #     #     "ice_damage": ice_damage,
-    #     #     "lightning_damage": lightning_damage,
-    #     #     "emotional_damage": emotional_damage,
-    #     #     "critical_damage": critical_damage
-    #     # }
-    #     final_damage = 0
-    #     for key, value in damage.items():
-    #         final_damage += (value if key not in self.resistance else (1-self.resistance[key])*value)
-    #     self.current_hp -= final_damage
-    #     if self.current_hp <= 0:
-    #         self.has_died()
-
     def take_damage(self, damage):
         self.current_hp -= damage
         if self.current_hp <= 0:

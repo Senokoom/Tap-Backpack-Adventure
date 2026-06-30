@@ -1,4 +1,7 @@
-class Item:
+from classes.Item.ItemABC import ItemABC
+
+
+class Item(ItemABC):
     def __init__(self, id, name, rarity, height, width, price, stats, level, _type=None, img=None):
         self.id = id
         self.name = name
@@ -54,3 +57,12 @@ class Item:
             "stats": self.current_stats,
             "price": self.current_price
         }
+
+    def __str__(self):
+        return f"{self.name}"
+
+    def __lt__(self, other):
+        return self.level < other.level
+
+    def __eq__(self, other):
+        return self.level == other.level

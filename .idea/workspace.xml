@@ -4,34 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="Короч, не помню, что именно поменял. Вроде добавил новые префиксы, что-то добавил в суффиксы, В плеер вроде убрал consumables и создал maingamewindow и чуток поменял gamestate. Надо будет добавить туда функции, что выводят актуальную инфу, типо хп плеера или врага. Урон и тд.">
-      <change afterPath="$PROJECT_DIR$/DataManagment/SaveManager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/AppController.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/System/enemy_registry.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/System/item_registry.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/main_window.py" afterDir="false" />
+    <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="Короче. merge_stats теперь починень, но является статической функцией, а не фукнцией класса ItemGenerator. Так же Calculator.py теперь дописан и работает без каких либо проблем. Исправил ошибку в Enemy.py с hp и скорее всего уберу consumables из игры, из-за сложнности реализации и бессмысленности сейчас. В принципе все, что я сегодня сделал. Я молодец?">
+      <change afterPath="$PROJECT_DIR$/classes/Item/ItemABC.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/TapBackpackQT.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/inventory/InventoryGridWidget.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/inventory/SlotButton.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Entities/Enemy/BaseEnemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Entities/Enemy/BaseEnemy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Entities/Enemy/BossEnemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Entities/Enemy/BossEnemy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/AppController.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/AppController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/Entities/Enemy/Enemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Entities/Enemy/Enemy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/Entities/Player.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Entities/Player.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/GameState.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/GameState.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/Inventory/Inventory.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Inventory/Inventory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Inventory/cell.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Inventory/cell.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Item/Armor.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Armor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Item/Consumable.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Consumable.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/Item/Item.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Item.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Item/Trinket.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Trinket.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Item/Weapon.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Item/Weapon.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/System/Calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/Calculator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/System/EnemyGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/EnemyGenerator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/System/ItemGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/ItemGenerator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/System/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/System/settings.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/settings.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/MainGameWindow.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/main_battle.ui" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/run_ui_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/main_window.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,6 +98,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\levak\PycharmProjects\Tap Backpack Hero Game\ui\inventory" />
+      <recent name="C:\Users\levak\PycharmProjects\Tap Backpack Hero Game\ui" />
       <recent name="C:\Users\levak\PycharmProjects\Tap Backpack Hero Game\classes\Entities" />
       <recent name="C:\Users\levak\PycharmProjects\Tap Backpack Hero Game\DataManagment" />
       <recent name="C:\Users\levak\PycharmProjects\Tap Backpack Hero Game\" />
@@ -128,8 +120,6 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="classes.Main" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -143,7 +133,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-b63d5a1f7c97-b61e75351b1f-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.22158.340" />
+        <option value="bundled-python-sdk-50da183f06c8-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13135.95" />
       </set>
     </attachedChunks>
   </component>

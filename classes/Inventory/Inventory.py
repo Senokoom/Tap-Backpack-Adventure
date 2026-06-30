@@ -139,6 +139,16 @@ class Inventory:
         return result_dict
 
 
+    def __lt__(self, other):
+        return len(self.item_list) < len(other.item_list)
+
+    def __eq__(self, other):
+        return len(self.item_list) == len(other.item_list)
+
+    def __str__(self):
+        return f"{self.inventory_to_string()}"
+
+
     #debag BS
 #-------------------------------------------------------------------------
     def item_list_to_string(self):

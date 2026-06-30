@@ -96,3 +96,6 @@ class Calculator:
                 elif value['type'] == 'multiply':
                     new_stats[current_stat].append({"value": value['value'] * (Config.item_multiply_progression_value ** item.level), "type": 'multiply'})
         return new_stats
+
+    def get_xp_for_next_level(self, player):
+        return Config.player_base_xp_value*(Config.player_xp_progression_value**player.level)
