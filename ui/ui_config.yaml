@@ -1,0 +1,3 @@
+ui:
+  logo_path: "pyGame/assets/ui/logo.png"
+  font: "pyGame/assets/font/pixel_font.ttf"
