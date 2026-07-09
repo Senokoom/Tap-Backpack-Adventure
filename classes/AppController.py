@@ -70,6 +70,7 @@ class AppController:
 
     def get_player_level_up(self, skill):
         self.state.get_player_level_up(skill)
+
     def create_player(self, name):
         return Player(
             1,
@@ -93,7 +94,10 @@ class AppController:
         SaveManager.save(self.state)
 
     def load_game(self):
-        self.state = GameState.from_dict(SaveManager.load())
+        try:
+            self.state = GameState.from_dict(SaveManager.load())
+        except:
+            return "Save file is Corrupted or Missing"
 
     def start_new_game(self, name):
         self.state = GameState(self.create_player(name))

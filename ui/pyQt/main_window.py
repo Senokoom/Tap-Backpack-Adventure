@@ -75,10 +75,10 @@ class MainWindow(QMainWindow):
             self.load_game_button.setText("Сохранение повреждено")
 
     def new_game_clicked(self):
-        if not self.input_hero_name.text():
+        if not self.input_hero_name.default_text():
             return
         else:
-            self.controller.start_new_game(self.input_hero_name.text())
+            self.controller.start_new_game(self.input_hero_name.default_text())
             self.stackedWidget.setCurrentIndex(1)
             self.update_ui_after_tap()
 

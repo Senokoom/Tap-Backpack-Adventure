@@ -10,4 +10,4 @@ if __name__ == "__main__":
     # window = MainWindow(AppController())
     # window.show()
     # sys.exit(app.exec())
-    game = PyGameWindow(AppController)
+    game = PyGameWindow(AppController())

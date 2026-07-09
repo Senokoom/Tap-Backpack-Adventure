@@ -1,7 +1,11 @@
 import pygame
 import sys
 
+from gif_pygame import gif_pygame
+
 from classes.AppController import AppController
+from ui.pyGame.UiElements.UiBackground import UiBackground
+from ui.pyGame.UiElements.UiGifBackground import UiGifBackground
 from ui.pyGame.UiElements.UiTextBox import UiTextBox
 from ui.ui_config import ImagePaths
 from ui.pyGame.UiElements.UiAnimatedLogo import UiAnimatedLogo
@@ -14,8 +18,11 @@ class PyGameWindow:
         :param window: текущее окно. 0 - Главное меню
         """
         pygame.init()
-        self.AppController = app_controller
+        self.controller = app_controller
         self.screen = pygame.display.set_mode((800, 600))
+
+        self.main_menu_color = (16, 11, 11)
+
         self.objects = []
         self.objects_on_screen = []
         self.window = window
@@ -23,20 +30,24 @@ class PyGameWindow:
         self.init_objects()
         self.init_objects_on_screen()
 
+        self.clock = pygame.time.Clock()
         self.main_loop()
 
 
     def init_objects(self):
-        self.objects.append(UiAnimatedLogo(145, 20, pygame.image.load(ImagePaths.logo_path), 0))
-        # self.objects.append(UiButton("testbutton", 100, 100, 50, 50, (0, 255, 0),
-        #              pygame.font.SysFont('couriernew', 20), "TEST", 0, False, 0))
-        self.objects.append(UiButton("NewGame", 315, 380, 180, 70, (153, 90, 8),
-                                     pygame.font.Font(ImagePaths.game_font, 20), "New Game", 0,
-                                     0, 0))
-        self.objects.append(UiButton("LoadGame", 315, 480, 180, 70, (93, 150, 60),
+        self.objects.append(UiGifBackground(100, 0, gif_pygame.load(ImagePaths.main_menu_gif_path), (800, 600), 0))
+        self.objects.append(UiAnimatedLogo(15, 20, pygame.image.load(ImagePaths.logo_path), 0))
+        self.objects.append(UiButton("LoadGame", 90, 480, 180, 70, (63, 110, 30),
                                      pygame.font.Font(ImagePaths.game_font, 20), "Load Game", 0,
-                                     0, 0))
-        self.objects.append(UiTextBox(273, 300, 250, 50, (205,205,205), pygame.font.Font(ImagePaths.game_font, 25), 0))
+                                     lambda: self.controller.load_game(), 0, (16, 6, 6)))
+        text_box = UiTextBox(60, 300, 250, 50, (205,205,205), pygame.font.Font(ImagePaths.game_font, 25), 0, (16, 6, 6))
+        self.objects.append(text_box)
+        self.objects.append(UiButton("NewGame", 90, 380, 180, 70, (153, 90, 8),
+                                     pygame.font.Font(ImagePaths.game_font, 20), "New Game", 0,
+                                     lambda: self.controller.start_new_game(text_box.text) if text_box.text != "" else "Can't Create Hero Without A Name",
+                                     0, (16, 6, 6)))
+
+
 
     def init_objects_on_screen(self):
         self.objects_on_screen = []
@@ -47,26 +58,20 @@ class PyGameWindow:
 
 
     def main_loop(self):
+        clicked_obj = None
         while True:
-            self.draw()
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
-                    if clicked_obj and type(clicked_obj) == UiTextBox:
-                        if event.key == pygame.K_BACKSPACE:
-                            clicked_obj.inserted_text = clicked_obj.inserted_text[:-1]
-                        elif event.key == pygame.K_RETURN:
-                            clicked_obj.clicked = False
-                        elif len(clicked_obj.inserted_text) < 20:
-                            clicked_obj.inserted_text += event.unicode
-
-
-
+                    if clicked_obj and isinstance(clicked_obj, UiTextBox):
+                        clicked_obj.update(event)
                 if event.type == pygame.MOUSEBUTTONUP:
                     clicked_obj = self.checkIntersection(pygame.mouse.get_pos())
                     for obj in self.objects_on_screen:
                         obj.clicked = False
-                    if clicked_obj and type(clicked_obj) != UiButton:
+                    if clicked_obj and isinstance(clicked_obj, UiTextBox):
                         clicked_obj.clicked = True
+                    elif clicked_obj and isinstance(clicked_obj, UiButton):
+                        clicked_obj.action()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     clicked_obj = self.checkIntersection(pygame.mouse.get_pos())
                     if clicked_obj:
@@ -74,10 +79,12 @@ class PyGameWindow:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+            self.draw()
+            dt = self.clock.tick(160)
             pygame.display.flip()
 
     def draw(self):
-        self.screen.fill((0, 0, 0))
+        self.screen.fill(self.main_menu_color)
         for obj in self.objects_on_screen:
             obj.draw(self.screen)
 
@@ -85,6 +92,6 @@ class PyGameWindow:
     def checkIntersection(self, mxy: tuple) -> UiButton | None:
         m_x, m_y = mxy
         for obj in self.objects_on_screen:
-            if obj.x < m_x < obj.x + obj.width and m_y > obj.y and m_y < obj.y + obj.height:
+            if obj.clickable and obj.x < m_x < obj.x + obj.width and m_y > obj.y and m_y < obj.y + obj.height:
                 return obj
         return None

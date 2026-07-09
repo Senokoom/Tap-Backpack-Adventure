@@ -5,7 +5,7 @@ from ui.pyGame.UiElements.UiElement import UiElement
 
 
 class UiButton(UiElement):
-    def __init__(self, name, x, y, width, height, color, font, text, back_image, action, screen):
+    def __init__(self, name, x, y, width, height, color, font, text, back_image, action, screen, text_color = (0,0,0)):
         """
         :param x:
         :param y:
@@ -17,6 +17,9 @@ class UiButton(UiElement):
         :param action: функция из AppController.
         :param screen: ЯВЛЯЕТСЯ ТО, НА КАКОМ ЭКРАНЕ ДОЛЖНА ПОЯВИТСЯ КНОПКА
         """
+
+        self.clickable = True
+
         self.name = name
         self.x = x
         self.y = y
@@ -24,7 +27,9 @@ class UiButton(UiElement):
         self.height = height
         self.color = color
 
-        self.text_surface = font.render(str(text), True, (0,0,0))
+        self.text_color = text_color
+
+        self.text_surface = font.render(str(text), True, self.text_color)
         self.text_rect = self.text_surface.get_rect()
 
         self.button_rect = Rect(x,y,width, height)

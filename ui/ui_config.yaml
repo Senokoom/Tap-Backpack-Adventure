@@ -1,3 +1,4 @@
 ui:
   logo_path: "pyGame/assets/ui/logo.png"
+  main_menu_gif_path: "pyGame/assets/ui/main_menu_campfire.gif"
   font: "pyGame/assets/font/pixel_font.ttf"

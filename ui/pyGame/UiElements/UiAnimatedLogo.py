@@ -5,13 +5,12 @@ class UiAnimatedLogo(UiElement):
     def __init__(self, x, y, image, screen):
         self.x = x
         self.y = y
-        self.image = pygame.transform.smoothscale(image, (500, 280))
+        self.image = pygame.transform.smoothscale(image, (450, 252))
 
 
-        self.width = 0  #просто будет. Чтоб он не ругался, когда я кликаю на лого
-        self.height = 0
+        self.clickable = False
 
-        self.animation_speed = 35
+        self.animation_speed = 6
         self.counter = 0
         self.screen = screen
         self.up_border = self.y - 10
@@ -32,5 +31,6 @@ class UiAnimatedLogo(UiElement):
                 self.an_y += 1
                 if self.an_y == self.down_border:
                     self.bumped = True
+            self.counter = 0
         surface.blit(self.image, (self.x, self.an_y))
         self.counter += 1
