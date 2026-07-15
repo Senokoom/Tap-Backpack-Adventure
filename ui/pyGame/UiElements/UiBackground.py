@@ -9,9 +9,6 @@ class UiBackground(UiElement):
 
         self.screen = screen
 
-        self.width = 0  # просто будет. Чтоб он не ругался, когда я кликаю на лого
-        self.height = 0
-
         self.clickable = False
 
     def draw(self, surface):

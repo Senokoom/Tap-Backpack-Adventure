@@ -4,18 +4,20 @@ import sys
 from gif_pygame import gif_pygame
 
 from classes.AppController import AppController
-from ui.pyGame.UiElements.UiBackground import UiBackground
+from ui.pyGame.UiElements.UiBattleBackground import UiBattleBackground
 from ui.pyGame.UiElements.UiGifBackground import UiGifBackground
 from ui.pyGame.UiElements.UiTextBox import UiTextBox
-from ui.ui_config import ImagePaths
+from ui.ui_config import UiConfig
 from ui.pyGame.UiElements.UiAnimatedLogo import UiAnimatedLogo
 from ui.pyGame.UiElements.UiButton import UiButton
 
 
 class PyGameWindow:
-    def __init__(self, app_controller: AppController, window=0):
+    def __init__(self, app_controller: AppController, window=1):
         """
-        :param window: текущее окно. 0 - Главное меню
+        :param window: текущее окно.
+        0 - Главное меню
+        1 - Окно игры
         """
         pygame.init()
         self.controller = app_controller
@@ -35,17 +37,19 @@ class PyGameWindow:
 
 
     def init_objects(self):
-        self.objects.append(UiGifBackground(100, 0, gif_pygame.load(ImagePaths.main_menu_gif_path), (800, 600), 0))
-        self.objects.append(UiAnimatedLogo(15, 20, pygame.image.load(ImagePaths.logo_path), 0))
+        self.objects.append(UiGifBackground(100, 0, gif_pygame.load(UiConfig.main_menu_gif_path), (800, 600), 0))
+        self.objects.append(UiAnimatedLogo(15, 20, pygame.image.load(UiConfig.logo_path), 0))
         self.objects.append(UiButton("LoadGame", 90, 480, 180, 70, (63, 110, 30),
-                                     pygame.font.Font(ImagePaths.game_font, 20), "Load Game", 0,
+                                     pygame.font.Font(UiConfig.game_font, 20), "Load Game", 0,
                                      lambda: self.controller.load_game(), 0, (16, 6, 6)))
-        text_box = UiTextBox(60, 300, 250, 50, (205,205,205), pygame.font.Font(ImagePaths.game_font, 25), 0, (16, 6, 6))
+        text_box = UiTextBox(60, 300, 250, 50, (205,205,205), pygame.font.Font(UiConfig.game_font, 25), 0, (16, 6, 6))
         self.objects.append(text_box)
         self.objects.append(UiButton("NewGame", 90, 380, 180, 70, (153, 90, 8),
-                                     pygame.font.Font(ImagePaths.game_font, 20), "New Game", 0,
+                                     pygame.font.Font(UiConfig.game_font, 20), "New Game", 0,
                                      lambda: self.controller.start_new_game(text_box.text) if text_box.text != "" else "Can't Create Hero Without A Name",
                                      0, (16, 6, 6)))
+
+        self.objects.append(UiBattleBackground(160, 20, pygame.image.load(UiConfig.battle_background_path), (500, 230), list(map(pygame.image.load, UiConfig.clouds_path)), 1))
 
 
 
