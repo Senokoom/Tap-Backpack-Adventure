@@ -5,3 +5,7 @@ class UiElement(ABC):
     @abstractmethod
     def draw(self, surface):
         pass
+
+    @abstractmethod
+    def update(self):
+        pass

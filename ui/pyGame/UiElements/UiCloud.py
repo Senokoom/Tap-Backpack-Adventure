@@ -10,7 +10,7 @@ class UiCloud(UiElement):
 
         self.clickable = False
         self.speed = speed
-        print(self.y)
+
         self.counter = 0
         self.max_x = max_x
 

@@ -5,7 +5,7 @@ from ui.pyGame.UiElements.UiElement import UiElement
 
 
 class UiButton(UiElement):
-    def __init__(self, name, x, y, width, height, color, font, text, back_image, action, screen, text_color = (0,0,0)):
+    def __init__(self, name, x, y, width, height, color, font, text, back_image, action, text_color = (0,0,0)):
         """
         :param x:
         :param y:
@@ -19,6 +19,8 @@ class UiButton(UiElement):
         """
 
         self.clickable = True
+
+        self.show = True
 
         self.name = name
         self.x = x
@@ -36,7 +38,6 @@ class UiButton(UiElement):
         self.text_rect.center = self.button_rect.center
         self.back_image = back_image
         self.action = action
-        self.screen = screen
 
         self.border_radius = 10
         self.animation_offset = 5
@@ -44,11 +45,22 @@ class UiButton(UiElement):
 
         self.animate = self.button_rect.y + self.animation_offset
 
+    def execute(self):
+        try:
+            result = self.action()
+            return True if not result else result
+        except Exception as e:
+            print(f"Somehow an error accured:\n{e}")
+            return False
+
+
     def draw(self, surface):
+        pygame.draw.rect(surface, self.color, self.button_rect, border_radius=self.border_radius)
+        surface.blit(self.text_surface, self.text_rect)
+
+    def update(self):
         if self.clicked:
             self.button_rect.y = self.animate
         else:
             self.button_rect.y = self.y
         self.text_rect.center = self.button_rect.center
-        pygame.draw.rect(surface, self.color, self.button_rect, border_radius=self.border_radius)
-        surface.blit(self.text_surface, self.text_rect)

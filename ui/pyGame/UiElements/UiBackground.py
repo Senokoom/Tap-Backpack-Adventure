@@ -13,3 +13,6 @@ class UiBackground(UiElement):
 
     def draw(self, surface):
         surface.blit(self.image, (self.x, self.y))
+
+    def update(self):
+        pass

@@ -3,12 +3,14 @@ from pygame import Rect
 from ui.pyGame.UiElements.UiElement import UiElement
 
 class UiTextBox(UiElement):
-    def __init__(self, x, y, width, height,color, font, screen, text_color, text_limit = 12, default_text_color = (90, 90, 90), default_text = "Введите имя..."):
+    def __init__(self, x, y, width, height,color, font, text_color, text_limit = 12, default_text_color = (90, 90, 90), default_text = "Введите имя..."):
         self.x = x
         self.y = y
         self.width = width
         self.height = height
         self.color = color
+
+        self.show = True
 
         self.clickable = True
 
@@ -19,7 +21,6 @@ class UiTextBox(UiElement):
 
         self.text = ""
 
-        self.screen = screen
         self.font = font
         self.default_text = default_text
         self.text_box_rect = Rect(x, y, width, height)
@@ -50,7 +51,10 @@ class UiTextBox(UiElement):
         self.counter += 1
 
 
-    def update(self, event):
+    def update(self):
+        pass
+
+    def handle_event(self, event):
         if self.clicked:
             if event.key == pygame.K_BACKSPACE:
                 self.text = self.text[:-1]

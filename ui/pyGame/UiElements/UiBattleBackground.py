@@ -15,6 +15,8 @@ class UiBattleBackground(UiElement):
         self.y = y
         self.image = pygame.transform.smoothscale(image, scale)
 
+        self.show = True
+
         self.screen = screen
         self.clickable = False
 
@@ -42,7 +44,6 @@ class UiBattleBackground(UiElement):
 
     def draw(self, surface):
         if randint(0, 200) and self.can_generate:
-            print(self.can_generate)
             self.can_generate = False
             self.spawn_cloud()
         surface.blit(self.image, (self.x, self.y))

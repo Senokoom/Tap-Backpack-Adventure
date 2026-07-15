@@ -3,11 +3,12 @@ import pygame
 import gif_pygame
 
 class UiGifBackground(UiElement):
-    def __init__(self, x,y, gif, size, screen):
+    def __init__(self, x,y, gif, size):
         self.x = x
         self.y = y
         self.size = size
-        self.screen = screen
+
+        self.show = True
 
         self.clickable = False
 
@@ -20,3 +21,6 @@ class UiGifBackground(UiElement):
 
     def draw(self, window):
         self.smooth_gif.render(window, (self.x, self.y))
+
+    def update(self):
+        pass
