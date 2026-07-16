@@ -78,11 +78,11 @@ class AppController:
 
     def get_enemy_hp_info(self):
         """
-        Короче, возвращает кортеж из current_hp, max_hp(scaled), percentage(осталось)
+        Короче, возвращает кортеж из current_hp, max_hp(scaled) приведенные к int
         """
         max_hp = self.state.get_enemy_max_health()
         current_hp = self.state.get_enemy_current_hp()
-        return current_hp, max_hp, int((current_hp/max_hp)*100)
+        return int(current_hp), int(max_hp)
 
     def get_player_current_stats(self):
         """

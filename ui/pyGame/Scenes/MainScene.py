@@ -46,7 +46,7 @@ class MainScene(BaseScene):
             if self.clicked_obj and isinstance(self.clicked_obj, UiTextBox):
                 self.clicked_obj.handle_event(event)
         if event.type == pygame.MOUSEBUTTONUP:
-            self.clicked_obj = self.checkIntersection(pygame.mouse.get_pos())
+            self.clicked_obj = self.checkIntersection(self.ui_objects, pygame.mouse.get_pos())
             for obj in self.ui_objects:
                 obj.clicked = False
             if self.clicked_obj and isinstance(self.clicked_obj, UiTextBox):
@@ -54,7 +54,7 @@ class MainScene(BaseScene):
             elif self.clicked_obj and isinstance(self.clicked_obj, UiButton):
                 self.clicked_obj.execute()
         if event.type == pygame.MOUSEBUTTONDOWN:
-            self.clicked_obj = self.checkIntersection(pygame.mouse.get_pos())
+            self.clicked_obj = self.checkIntersection(self.ui_objects, pygame.mouse.get_pos())
             if self.clicked_obj:
                 self.clicked_obj.clicked = True
 
@@ -63,10 +63,10 @@ class MainScene(BaseScene):
             if obj.show:
                 obj.draw(surface)
 
-
-    def checkIntersection(self, mxy):
+    @staticmethod
+    def checkIntersection(ui_objects, mxy):
         m_x, m_y = mxy
-        for obj in self.ui_objects:
+        for obj in ui_objects:
             if obj.clickable and obj.x < m_x < obj.x + obj.width and m_y > obj.y and m_y < obj.y + obj.height:
                 return obj
         return None

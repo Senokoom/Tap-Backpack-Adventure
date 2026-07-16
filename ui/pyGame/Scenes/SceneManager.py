@@ -1,12 +1,6 @@
-import pygame
-import gif_pygame
-
 from ui.pyGame.Scenes.BattleScene import BattleScene
 from ui.pyGame.Scenes.MainScene import MainScene
-from ui.pyGame.UiElements.UiButton import UiButton
-from ui.pyGame.UiElements.UiGifBackground import UiGifBackground
-from ui.pyGame.UiElements.UiTextBox import UiTextBox
-from ui.ui_config import UiConfig
+
 
 
 class SceneManager:

@@ -2,12 +2,12 @@ from ui.pyGame.UiElements.UiElement import UiElement
 import pygame
 
 class UiCloud(UiElement):
-    def __init__(self, x, y, image, speed, max_x, scale):
+    def __init__(self, x, y, image, speed, max_x, scale, alpha):
         self.x = x
         self.y = y
         self.width, self.height = scale
         self.image = pygame.transform.smoothscale(image, scale)
-
+        self.image.set_alpha(alpha)
         self.clickable = False
         self.speed = speed
 
