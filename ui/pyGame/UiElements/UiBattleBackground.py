@@ -13,6 +13,8 @@ class UiBattleBackground(UiElement):
 
         self.action = action
 
+        self.enemy = 0
+
         self.x = x
         self.y = y
         self.image = pygame.transform.smoothscale(image, scale)
@@ -52,6 +54,7 @@ class UiBattleBackground(UiElement):
     def execute(self):
         try:
             result = self.action()
+            self.enemy.change_to_hit()
             return True if not result else result
         except Exception as e:
             print(f"Somehow an error accured:\n{e}")

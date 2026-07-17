@@ -6,3 +6,8 @@ ui:
   cloud_2_path: "pyGame/assets/ui/cloud_2.png"
   cloud_3_path: "pyGame/assets/ui/cloud_3.png"
   font: "pyGame/assets/font/pixel_font.ttf"
+  entities:
+    slime:
+      idle: "pyGame/assets/ui/Entity/Slime/Idle"
+      die: "pyGame/assets/ui/Entity/Slime/Die"
+      hit: "pyGame/assets/ui/Entity/Slime/Hit"

@@ -4,17 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="Короче, сделал систему сцен. Теперь он переключает их по нажатию кнопок и все отображается и работает норм. Написал парочку Exception, чисто по приколу. Так же добавил UiLabel. Так что теперь можно отображать и текст тож. В принципе все :)">
-      <change afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiEnemy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiProgressBar.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/pyGame/UiSystem/Animation.py" afterDir="false" />
+    <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="Короче, написал еще прогрессбар. Так что теперь отображается здоровье у врага. Так же наконец-то срабатывает клик у battlebackground, так что теперь можно кликать прям по нему. Добавил немного прозрачности облакам и создал Animation.py и UiEnemy.py. Оба недописаны. Animation.py написал ИИ, но нужно дописать :), а Enemy ваще не написан. Так что удаченьки мне">
+      <change afterPath="$PROJECT_DIR$/ui/pyGame/assets/ui/Entity/Slime/Die/die1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/pyGame/assets/ui/Entity/Slime/Die/die2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/pyGame/assets/ui/Entity/Slime/Die/die3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/pyGame/assets/ui/Entity/Slime/Die/die4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/pyGame/assets/ui/Entity/Slime/Die/die5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/pyGame/assets/ui/Entity/Slime/Hit/hit1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/pyGame/assets/ui/Entity/Slime/Hit/hit2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/pyGame/assets/ui/Entity/Slime/Hit/hit3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/pyGame/assets/ui/Entity/Slime/Idle/idle1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/pyGame/assets/ui/Entity/Slime/Idle/idle2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/pyGame/assets/ui/Entity/Slime/Idle/idle3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/pyGame/assets/ui/Entity/Slime/Idle/idle4.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/AppController.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/AppController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/pyGame/Scenes/BattleScene.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/Scenes/BattleScene.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/pyGame/Scenes/MainScene.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/Scenes/MainScene.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/pyGame/Scenes/SceneManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/Scenes/SceneManager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/pyGame/UiElements/UiBattleBackground.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiBattleBackground.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/pyGame/UiElements/UiCloud.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiCloud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/pyGame/UiElements/UiEnemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiEnemy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/pyGame/UiSystem/Animation.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/UiSystem/Animation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/ui_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/ui_config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/ui_config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ui/ui_config.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +88,7 @@
     "Python.run_ui_test.executor": "Run",
     "Python.settings.executor": "Run",
     "Python.test_save.executor": "Run",
+    "Python.ui_config.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -86,7 +96,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/levak/PycharmProjects/Tap Backpack Hero Game/ui/pyGame/assets/ui",
+    "last_opened_file_path": "C:/Users/levak/PycharmProjects/Tap Backpack Hero Game/ui/pyGame/assets/ui/Entity",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -96,6 +106,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\levak\PycharmProjects\Tap Backpack Hero Game\ui\pyGame\assets\ui\Entity" />
       <recent name="C:\Users\levak\PycharmProjects\Tap Backpack Hero Game\ui\pyGame\assets\ui" />
       <recent name="C:\Users\levak\PycharmProjects\Tap Backpack Hero Game\ui\pyGame\images" />
     </key>
@@ -283,7 +294,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784157694246</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Короче, написал еще прогрессбар. Так что теперь отображается здоровье у врага. Так же наконец-то срабатывает клик у battlebackground, так что теперь можно кликать прям по нему. Добавил немного прозрачности облакам и создал Animation.py и UiEnemy.py. Оба недописаны. Animation.py написал ИИ, но нужно дописать :), а Enemy ваще не написан. Так что удаченьки мне">
+      <option name="closed" value="true" />
+      <created>1784237365083</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1784237365083</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,6 +351,7 @@
     <MESSAGE value="Главное меню в PyGame доделано. Функциональность тоже готово. Сохраняют/загружают игры, ошибки не вылетают. В будущем добавить кнопку настроек и звуки. Так же перейти к разработке окна битвы" />
     <MESSAGE value="Короче, я жестко проебался. Надо сделать отдельные классы экранов и с ними уже дальше работать. Так будет проще загружать и получать / показывать данные. Сейчас просто есть главный экран и немного экрана битвы, но они не объявлены как отдельные классы. Надо сделать" />
     <MESSAGE value="Короче, сделал систему сцен. Теперь он переключает их по нажатию кнопок и все отображается и работает норм. Написал парочку Exception, чисто по приколу. Так же добавил UiLabel. Так что теперь можно отображать и текст тож. В принципе все :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Короче, сделал систему сцен. Теперь он переключает их по нажатию кнопок и все отображается и работает норм. Написал парочку Exception, чисто по приколу. Так же добавил UiLabel. Так что теперь можно отображать и текст тож. В принципе все :)" />
+    <MESSAGE value="Короче, написал еще прогрессбар. Так что теперь отображается здоровье у врага. Так же наконец-то срабатывает клик у battlebackground, так что теперь можно кликать прям по нему. Добавил немного прозрачности облакам и создал Animation.py и UiEnemy.py. Оба недописаны. Animation.py написал ИИ, но нужно дописать :), а Enemy ваще не написан. Так что удаченьки мне" />
+    <option name="LAST_COMMIT_MESSAGE" value="Короче, написал еще прогрессбар. Так что теперь отображается здоровье у врага. Так же наконец-то срабатывает клик у battlebackground, так что теперь можно кликать прям по нему. Добавил немного прозрачности облакам и создал Animation.py и UiEnemy.py. Оба недописаны. Animation.py написал ИИ, но нужно дописать :), а Enemy ваще не написан. Так что удаченьки мне" />
   </component>
 </project>
