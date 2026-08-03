@@ -17,7 +17,9 @@ class Animation:
 
             new_h = int(self.target_width * ratio)
             scaled_img = pygame.transform.scale(img, (self.target_width, new_h))
+
             self.frames.append(scaled_img)
+
 
         if self.frames:
             max_w = max(f.get_width() for f in self.frames)

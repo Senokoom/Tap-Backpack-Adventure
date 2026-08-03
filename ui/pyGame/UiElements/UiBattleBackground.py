@@ -1,7 +1,10 @@
+from classes.AppController import AppController
 from ui.pyGame.UiElements.UiCloud import UiCloud
 from ui.pyGame.UiElements.UiElement import UiElement
 import pygame
 from random import randint, choice
+
+from ui.ui_config import UiConfig
 
 
 class UiBattleBackground(UiElement):
@@ -9,6 +12,7 @@ class UiBattleBackground(UiElement):
         """
         clouds - Путь к картинкам
         """
+
         self.width, self.height = scale
 
         self.action = action
@@ -51,10 +55,10 @@ class UiBattleBackground(UiElement):
 
         self.clouds_list = []
 
-    def execute(self):
+    def execute(self, mouse_pos):
         try:
             result = self.action()
-            self.enemy.change_to_hit()
+            self.enemy.hit(mouse_pos)
             return True if not result else result
         except Exception as e:
             print(f"Somehow an error accured:\n{e}")

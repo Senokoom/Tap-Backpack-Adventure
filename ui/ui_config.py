@@ -1,4 +1,3 @@
-
 import yaml
 from pathlib import Path
 
@@ -16,8 +15,13 @@ class UiConfig:
     battle_background_path = project_data_dir / image_paths["ui"]["battle_background_path"]
     clouds_path = [project_data_dir / image_paths["ui"]["cloud_1_path"], project_data_dir / image_paths["ui"]["cloud_2_path"], project_data_dir / image_paths["ui"]["cloud_3_path"]]
 
+    coin_path = project_data_dir / image_paths["ui"]["coin_image_path"]
+
     game_font = project_data_dir / image_paths["ui"]["font"]
+
+
 
     slime_hit = project_data_dir / image_paths["ui"]["entities"]["slime"]["hit"]
     slime_idle = project_data_dir / image_paths["ui"]["entities"]["slime"]["idle"]
     slime_die = project_data_dir / image_paths["ui"]["entities"]["slime"]["die"]
+

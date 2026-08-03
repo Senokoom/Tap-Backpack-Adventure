@@ -15,7 +15,6 @@ class AppController:
     def set_scene_manager(self, scene_manager):
         self.scene_manager = scene_manager
 
-
     def switch_scene(self, scene):
         self.scene_manager.current_scene = scene
 

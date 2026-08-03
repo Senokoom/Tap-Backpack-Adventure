@@ -11,6 +11,9 @@ class UiLabel(UiElement):
         self.text = text
         self.text_color = text_color
 
+        self.width = width
+        self.height = height
+
         self.clickable = False
 
         self.show = True
@@ -22,7 +25,8 @@ class UiLabel(UiElement):
         surface.blit(self.text_surface, self.text_box_rect)
 
     def update(self):
-        pass
+        self.text_box_rect = Rect(self.x, self.y, self.width, self.height)
+        self.text_surface = self.font.render(str(self.text), True, self.text_color)
 
     def handle_event(self):
         pass

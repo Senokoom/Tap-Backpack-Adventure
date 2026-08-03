@@ -1,13 +1,15 @@
 from ui.pyGame.UiElements.UiElement import UiElement
 import pygame
 
-class UiBackground(UiElement):
+class UiImage(UiElement):
     def __init__(self, x, y, image, scale, screen):
         self.x = x
         self.y = y
         self.image = pygame.transform.smoothscale(image, scale)
 
         self.screen = screen
+
+        self.show = True
 
         self.clickable = False
 
