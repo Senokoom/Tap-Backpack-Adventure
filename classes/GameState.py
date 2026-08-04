@@ -78,6 +78,9 @@ class GameState:
     def get_player_gold(self):
         return self.player.gold
 
+    def get_player_xp_to_next_level(self):
+        return self.calculator.get_xp_for_next_level(self.player)
+
     def get_player_xp(self):
         return self.player.xppoints
 

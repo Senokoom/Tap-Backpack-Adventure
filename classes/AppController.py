@@ -102,6 +102,9 @@ class AppController:
     def get_player_gold(self):
         return self.state.get_player_gold()
 
+    def get_player_xp_to_next_level(self):
+        return self.state.get_player_xp_to_next_level()
+
     def get_player_xp(self):
         return self.state.get_player_xp()
 

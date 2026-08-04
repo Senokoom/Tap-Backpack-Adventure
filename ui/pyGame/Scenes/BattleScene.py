@@ -10,6 +10,7 @@ from ui.pyGame.UiElements.UiBattleBackground import UiBattleBackground
 from ui.pyGame.UiElements.UiEnemy import UiEnemy
 from ui.pyGame.UiElements.UiLabel import UiLabel
 from ui.pyGame.UiElements.UiLevelUp import UiLevelUp
+from ui.pyGame.UiElements.UiProgressBar import UiProgressBar
 from ui.pyGame.UiElements.UiRectangle import UiRectangle
 from ui.ui_config import UiConfig
 
@@ -25,6 +26,9 @@ class BattleScene(BaseScene):
         self.dps = 0
 
         self.show_level_up_value = True
+        self.last_level_up = self.controller.get_player_xp() - self.controller.get_player_xp_to_next_level()
+        self.current_level = self.controller.get_player_level()
+        self.prev_next_threshold = self.controller.get_player_xp_to_next_level()
 
         self.enemy = None
 
@@ -38,12 +42,13 @@ class BattleScene(BaseScene):
         self.ui_objects.append(UiImage(12, 30, pygame.image.load(UiConfig.coin_path), (35, 35), 1))
 
         self.ui_objects.append(dps_label := UiLabel(20, 90, 100, 100, pygame.font.Font(UiConfig.game_font, 20), "DPS: 0.00", (255, 100, 100)))
+        self.ui_objects.append(exp_bar := UiProgressBar(-10, 585, 850, 20, (40, 100, 40), (0, 0, 0), 500, 100,
+                                                        pygame.font.Font(UiConfig.game_font, 10), (25, 25, 25),(255, 255, 255), outline_width=1))
+        self.exp_bar = exp_bar
 
+        #LEVEL UP STUFF
         self.ui_objects.append(lvl_label := UiLabel(680, 30, 100, 100, pygame.font.Font(UiConfig.game_font, 25), "Lvl:", (100, 255, 100)))
-
         self.ui_objects.append(lvlup_label := UiLevelUp(700, 90, 70, 55, pygame.font.Font(UiConfig.game_font, 50), (100,255,100), self.controller.get_player_skill_points(), self.label_func_level_up_show))
-
-
         self.ui_objects.append(levelup_rect := UiRectangle(100, 260, 600, 300, (100, 25, 25)))
         self.ui_objects.append(physical_label := UiLabel(110, 270, 100, 100, pygame.font.Font(UiConfig.game_font, 20),
                                                          "Physical Damage: ", (255, 255, 255)))
@@ -66,9 +71,7 @@ class BattleScene(BaseScene):
         self.ui_objects.append(gold_drop_label := UiLabel(110, 495, 100, 100, pygame.font.Font(UiConfig.game_font, 20),
                                                          "Gold Drop: ", (255, 255, 255)))
         self.ui_objects.append(xp_drop_label := UiLabel(110, 520, 100, 100, pygame.font.Font(UiConfig.game_font, 20),
-
                                                           "Xp Drop: ", (255, 255, 255)))
-
         self.ui_objects.append(physical_lvl_label := UiLabel(410, 270, 100, 100, pygame.font.Font(UiConfig.game_font, 20),
                                                          "", (255, 255, 255)))
         self.ui_objects.append(fire_lvl_label := UiLabel(410, 295, 100, 100, pygame.font.Font(UiConfig.game_font, 20),
@@ -93,7 +96,6 @@ class BattleScene(BaseScene):
                                                           "", (255, 255, 255)))
         self.ui_objects.append(xp_drop_lvl_label := UiLabel(410, 520, 100, 100, pygame.font.Font(UiConfig.game_font, 20),
                                                         "", (255, 255, 255)))
-
         self.ui_objects.append(physical_button := UiButton("", 640, 270, 40, 20,(25, 100, 25), pygame.font.Font(UiConfig.game_font, 30),
                                                          "+", 0, self.level_up_physical, border_radius=2))
         self.ui_objects.append(fire_button := UiButton("", 640, 295, 40, 20, (25, 100, 25),
@@ -126,6 +128,8 @@ class BattleScene(BaseScene):
         self.ui_objects.append(rare_item_drop_button := UiButton("", 640, 520, 40, 20, (25, 100, 25),
                                                             pygame.font.Font(UiConfig.game_font, 30),
                                                             "+", 0, self.level_up_rare_item_drop, border_radius=2))
+
+
 
 
         # {'physical_damage': 1,
@@ -218,6 +222,20 @@ class BattleScene(BaseScene):
 
 
     def update(self):
+        total_xp = int(self.controller.get_player_xp())
+        player_level = int(self.controller.get_player_level())
+        next_threshold = int(self.controller.get_player_xp_to_next_level())
+        if self.current_level != player_level:
+            self.current_level = self.controller.get_player_level()
+            self.last_level_up = self.prev_next_threshold if self.prev_next_threshold > 0 else 0
+        self.prev_next_threshold = next_threshold
+        bar_value = total_xp - self.last_level_up
+        bar_max = next_threshold - self.last_level_up
+        if self.current_level == 1:
+            self.exp_bar.progress_bar_value, self.exp_bar.progress_bar_max = int(
+                self.controller.get_player_xp()), int(self.controller.get_player_xp_to_next_level())
+        else:
+            self.exp_bar.progress_bar_value, self.exp_bar.progress_bar_max = bar_value, bar_max
         if self.level_labels:
             level_values_list = list(self.controller.get_player_base_stats().values())
             for i in range(len(self.level_labels)):

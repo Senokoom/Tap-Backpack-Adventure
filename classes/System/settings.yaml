@@ -31,8 +31,8 @@ level_up_settings:
 
 progression_settings:
   player:
-    xp_growth: 2
-    first_xp_level: 20
+    xp_growth: 1.5
+    first_xp_level: 10
   item:
     add_growth: 1.06
     multiply_growth: 1.06

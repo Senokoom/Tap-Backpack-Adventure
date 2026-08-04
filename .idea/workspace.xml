@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="Добавил урон, лейбл для монеток, для повышения уровня. Позже добавить окно для повышения уровня. Так же починить, возможно удалить анимацию смерти. Переделать Анимацию так, чтобы можно было использовать animation/sprite sheet">
-      <change afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiRectangle.py" afterDir="false" />
+    <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="Добавил окно для повышения уровня. Можно следующим добавить полоску xp, а так же начать работу над созданием инвенторя">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/AppController.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/AppController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/GameState.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/GameState.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/System/settings.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/classes/System/settings.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/pyGame/Scenes/BattleScene.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/Scenes/BattleScene.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/pyGame/UiElements/UiButton.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiButton.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/pyGame/UiElements/UiEnemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiEnemy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/pyGame/UiElements/UiImage.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiImage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/pyGame/UiElements/UiLevelUp.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiLevelUp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/pyGame/UiElements/UiProgressBar.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiProgressBar.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,7 +305,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785799093980</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Добавил окно для повышения уровня. Можно следующим добавить полоску xp, а так же начать работу над созданием инвенторя">
+      <option name="closed" value="true" />
+      <created>1785844249992</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1785844249992</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -362,7 +365,8 @@
     <MESSAGE value="Короче, написал еще прогрессбар. Так что теперь отображается здоровье у врага. Так же наконец-то срабатывает клик у battlebackground, так что теперь можно кликать прям по нему. Добавил немного прозрачности облакам и создал Animation.py и UiEnemy.py. Оба недописаны. Animation.py написал ИИ, но нужно дописать :), а Enemy ваще не написан. Так что удаченьки мне" />
     <MESSAGE value="Короч, за сегодня добавил анимации для слаймика, так же попытался их добавить в UiBattleBackground. Но пока какая-то херня, думаю надо бы получше поработать с BattleScene и сделать так, чтобы все работало через него и не через UiBattleBackground. Плюс надо немного позаниматься тем, чтобы фиксить анимацию и сделать ее не дерганной. В принципе все. Я отдыхать на полторы недели ;)" />
     <MESSAGE value="Добавил урон, лейбл для монеток, для повышения уровня. Позже добавить окно для повышения уровня. Так же починить, возможно удалить анимацию смерти. Переделать Анимацию так, чтобы можно было использовать animation/sprite sheet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил урон, лейбл для монеток, для повышения уровня. Позже добавить окно для повышения уровня. Так же починить, возможно удалить анимацию смерти. Переделать Анимацию так, чтобы можно было использовать animation/sprite sheet" />
+    <MESSAGE value="Добавил окно для повышения уровня. Можно следующим добавить полоску xp, а так же начать работу над созданием инвенторя" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил окно для повышения уровня. Можно следующим добавить полоску xp, а так же начать работу над созданием инвенторя" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
