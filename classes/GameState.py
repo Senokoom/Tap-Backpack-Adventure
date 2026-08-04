@@ -52,7 +52,6 @@ class GameState:
         self.progression += 1
         self.spawn_enemy()
 
-
     def get_enemy_max_health(self):
         if self.current_enemy is None:
             self.spawn_enemy()

@@ -5,7 +5,7 @@ from ui.pyGame.UiElements.UiElement import UiElement
 
 
 class UiLevelUp(UiElement):
-    def __init__(self, x, y, width, height, font, text_color, points_amount):
+    def __init__(self, x, y, width, height, font, text_color, points_amount, action):
         self.x = x
         self.y = y
         self.width = width
@@ -34,9 +34,15 @@ class UiLevelUp(UiElement):
         self.text_box_rect = Rect(x, y, width, height)
         self.text_surface = font.render(str(f"! {self.points_amount}"), True, self.text_color)
 
+        self.action = action
+
     def draw(self, surface):
         # pygame.draw.rect(surface, (0, 255, 0), self.text_box_rect, 1)
         surface.blit(self.text_surface, self.text_box_rect)
+
+
+    def execute(self):
+        self.action()
 
     def update(self):
         if self.counter >= self.animation_speed:

@@ -2,7 +2,7 @@ from pygame import Rect
 
 from ui.pyGame.UiElements.UiElement import UiElement
 import pygame
-
+import humanize
 class UiProgressBar(UiElement):
     def __init__(self, x, y, width, height, progress_bar_color, outline_color, progress_bar_max, progress_bar_value, font, text_color = (0,0,0), back_color = (150, 150, 150), outline_width = 4):
         self.x = x
@@ -26,7 +26,7 @@ class UiProgressBar(UiElement):
 
         self.progress_bar_rect = Rect(x, y, width, height)
 
-        self.text_surface = font.render(str(f"{self.progress_bar_value} / {progress_bar_max}"), True, self.text_color)
+        self.text_surface = font.render(str(f"{humanize.metric(self.progress_bar_value)} / {humanize.metric(progress_bar_max)}"), True, self.text_color)
         self.text_rect = self.text_surface.get_rect()
 
         self.text_rect.center = self.progress_bar_rect.center

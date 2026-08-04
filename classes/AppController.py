@@ -9,7 +9,7 @@ from classes.System.settings import Config
 class AppController:
     def __init__(self):
         self.state = GameState(self.create_player("Placeholder"))
-        self.game_stated = False
+        self.game_started = False
         self.scene_manager = None
 
     def set_scene_manager(self, scene_manager):
@@ -47,7 +47,7 @@ class AppController:
     def load_game(self):
         try:
             self.state = GameState.from_dict(SaveManager.load())
-            self.game_stated = True
+            self.game_started = True
             self.start_game_scene()
         except:
             self.FileError()
@@ -60,7 +60,7 @@ class AppController:
     def start_new_game(self, name):
         self.state = GameState(self.create_player(name))
         self.save_game()
-        self.game_stated = True
+        self.game_started = True
         self.start_game_scene()
 
     def start_game_scene(self):

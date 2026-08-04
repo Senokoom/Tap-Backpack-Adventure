@@ -1,4 +1,4 @@
-from pygame.pixelcopy import surface_to_array
+import humanize
 
 from classes.AppController import AppController
 from ui.pyGame.UiElements.UiDamage import UiDamage

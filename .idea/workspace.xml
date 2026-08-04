@@ -4,23 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="Короч, за сегодня добавил анимации для слаймика, так же попытался их добавить в UiBattleBackground. Но пока какая-то херня, думаю надо бы получше поработать с BattleScene и сделать так, чтобы все работало через него и не через UiBattleBackground. Плюс надо немного позаниматься тем, чтобы фиксить анимацию и сделать ее не дерганной. В принципе все. Я отдыхать на полторы недели ;)">
-      <change afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiDamage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiLevelUp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/pyGame/assets/ui/coin.png" afterDir="false" />
+    <list default="true" id="5d79e9be-9ea3-42a9-b7e3-91c0f393af9d" name="Changes" comment="Добавил урон, лейбл для монеток, для повышения уровня. Позже добавить окно для повышения уровня. Так же починить, возможно удалить анимацию смерти. Переделать Анимацию так, чтобы можно было использовать animation/sprite sheet">
+      <change afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiRectangle.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/AppController.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/AppController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/GameState.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/GameState.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/pyGame/Scenes/BattleScene.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/Scenes/BattleScene.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/pyGame/UiElements/UiBackground.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiImage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/pyGame/UiElements/UiBattleBackground.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiBattleBackground.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/pyGame/UiElements/UiButton.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiButton.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/pyGame/UiElements/UiEnemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiEnemy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/pyGame/UiElements/UiLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiLabel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/pyGame/UiSystem/Animation.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/UiSystem/Animation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/pyGame/assets/ui/Entity/Slime/Hit/hit1.png" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/assets/ui/Entity/Slime/Hit/hit1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/pyGame/assets/ui/Entity/Slime/Hit/hit2.png" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/assets/ui/Entity/Slime/Hit/hit2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/pyGame/assets/ui/Entity/Slime/Hit/hit3.png" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/assets/ui/Entity/Slime/Hit/hit3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/ui_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/ui_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/ui_config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ui/ui_config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/pyGame/UiElements/UiImage.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiImage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/pyGame/UiElements/UiLevelUp.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiLevelUp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/pyGame/UiElements/UiProgressBar.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pyGame/UiElements/UiProgressBar.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,47 +54,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.AbstractItem.executor": "Run",
-    "Python.Animation.executor": "Run",
-    "Python.BattleScene.executor": "Run",
-    "Python.BossEnemy.executor": "Run",
-    "Python.Calculator.executor": "Run",
-    "Python.DataLoader.executor": "Run",
-    "Python.EnemyGenerator.executor": "Run",
-    "Python.GameState.executor": "Run",
-    "Python.Inventory.executor": "Run",
-    "Python.Item.executor": "Run",
-    "Python.ItemGenerator.executor": "Run",
-    "Python.Main.executor": "Run",
-    "Python.Player.executor": "Run",
-    "Python.UiAnimatedLogo.executor": "Run",
-    "Python.Weapon.executor": "Run",
-    "Python.dataloader.executor": "Run",
-    "Python.game.executor": "Run",
-    "Python.img_config.executor": "Run",
-    "Python.item_registry.executor": "Run",
-    "Python.main_window.executor": "Run",
-    "Python.run_ui_test.executor": "Run",
-    "Python.settings.executor": "Run",
-    "Python.test_save.executor": "Run",
-    "Python.ui_config.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/levak/PycharmProjects/Tap Backpack Hero Game/ui/pyGame/assets/ui/Entity/Slime/Hit",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.AbstractItem.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Animation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.BattleScene.executor&quot;: &quot;Run&quot;,
+    &quot;Python.BossEnemy.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Calculator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.DataLoader.executor&quot;: &quot;Run&quot;,
+    &quot;Python.EnemyGenerator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.GameState.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Inventory.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Item.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ItemGenerator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Player.executor&quot;: &quot;Run&quot;,
+    &quot;Python.UiAnimatedLogo.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Weapon.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dataloader.executor&quot;: &quot;Run&quot;,
+    &quot;Python.game.executor&quot;: &quot;Run&quot;,
+    &quot;Python.img_config.executor&quot;: &quot;Run&quot;,
+    &quot;Python.item_registry.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main_window.executor&quot;: &quot;Run&quot;,
+    &quot;Python.run_ui_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.settings.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_save.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ui_config.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/levak/PycharmProjects/Tap Backpack Hero Game/ui/pyGame/assets/ui/Entity/Slime/Hit&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\levak\PycharmProjects\Tap Backpack Hero Game\ui\pyGame\assets\ui\Entity\Slime\Hit" />
@@ -308,7 +302,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784293165838</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Добавил урон, лейбл для монеток, для повышения уровня. Позже добавить окно для повышения уровня. Так же починить, возможно удалить анимацию смерти. Переделать Анимацию так, чтобы можно было использовать animation/sprite sheet">
+      <option name="closed" value="true" />
+      <created>1785799093980</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1785799093980</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,6 +361,17 @@
     <MESSAGE value="Короче, сделал систему сцен. Теперь он переключает их по нажатию кнопок и все отображается и работает норм. Написал парочку Exception, чисто по приколу. Так же добавил UiLabel. Так что теперь можно отображать и текст тож. В принципе все :)" />
     <MESSAGE value="Короче, написал еще прогрессбар. Так что теперь отображается здоровье у врага. Так же наконец-то срабатывает клик у battlebackground, так что теперь можно кликать прям по нему. Добавил немного прозрачности облакам и создал Animation.py и UiEnemy.py. Оба недописаны. Animation.py написал ИИ, но нужно дописать :), а Enemy ваще не написан. Так что удаченьки мне" />
     <MESSAGE value="Короч, за сегодня добавил анимации для слаймика, так же попытался их добавить в UiBattleBackground. Но пока какая-то херня, думаю надо бы получше поработать с BattleScene и сделать так, чтобы все работало через него и не через UiBattleBackground. Плюс надо немного позаниматься тем, чтобы фиксить анимацию и сделать ее не дерганной. В принципе все. Я отдыхать на полторы недели ;)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Короч, за сегодня добавил анимации для слаймика, так же попытался их добавить в UiBattleBackground. Но пока какая-то херня, думаю надо бы получше поработать с BattleScene и сделать так, чтобы все работало через него и не через UiBattleBackground. Плюс надо немного позаниматься тем, чтобы фиксить анимацию и сделать ее не дерганной. В принципе все. Я отдыхать на полторы недели ;)" />
+    <MESSAGE value="Добавил урон, лейбл для монеток, для повышения уровня. Позже добавить окно для повышения уровня. Так же починить, возможно удалить анимацию смерти. Переделать Анимацию так, чтобы можно было использовать animation/sprite sheet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил урон, лейбл для монеток, для повышения уровня. Позже добавить окно для повышения уровня. Так же починить, возможно удалить анимацию смерти. Переделать Анимацию так, чтобы можно было использовать animation/sprite sheet" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classes/GameState.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

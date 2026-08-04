@@ -5,7 +5,7 @@ from ui.pyGame.UiElements.UiElement import UiElement
 
 
 class UiButton(UiElement):
-    def __init__(self, name, x, y, width, height, color, font, text, back_image, action, text_color = (0,0,0)):
+    def __init__(self, name, x, y, width, height, color, font, text, back_image, action, text_color = (0,0,0), border_radius = 10):
         """
         :param x:
         :param y:
@@ -39,7 +39,7 @@ class UiButton(UiElement):
         self.back_image = back_image
         self.action = action
 
-        self.border_radius = 10
+        self.border_radius = border_radius
         self.animation_offset = 5
         self.clicked = False
 

@@ -10,7 +10,6 @@ class UiImage(UiElement):
         self.screen = screen
 
         self.show = True
-
         self.clickable = False
 
     def draw(self, surface):
