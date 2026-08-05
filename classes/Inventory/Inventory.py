@@ -78,6 +78,7 @@ class Inventory:
 
     def can_fit(self, item, x, y):
         if x + item.width > self.width or y + item.height > self.height:
+            print(f"Предмет вышел за границу {x + item.width > self.width} or {y + item.height > self.height}")
             return False
         for i in range(x, x + item.width):
             for j in range(y, y + item.height):
@@ -87,6 +88,7 @@ class Inventory:
                     if self.inventory_matrix[i][j].item == item:
                         pass
                     else:
+                        print(f"предмет пересекается с другим предметом в ячейке {i}/{j}")
                         return False
         return True
 
@@ -163,21 +165,38 @@ class Inventory:
         return inventory_string
 
 #так же тупо для дебага, потом убрать
-class Item:
-    def __init__(self, name, width, height):
-        self.name = name
-        self.width = width
-        self.height = height
-
-
-# ДЕБАЖИЛ
-# deb_inventory = Inventory(7, 7)
+# class Item:
+#     def __init__(self, name, width, height):
+#         self.name = name
+#         self.width = height
+#         self.height = width
+#
+#
+# # ДЕБАЖИЛ
+# deb_inventory = Inventory(5, 5)
 # print(deb_inventory.inventory_to_string())
-# deb_item = Item("debug", 3, 1)
-# deb_inventory.add_item(deb_item, 0, 0)
+# deb_item = Item("debug", 4, 1)
+# deb_item2 = Item("debug2", 1, 2)
+# deb_item3 = Item("debug3", 4, 1)
+# deb_item4 = Item("debug4", 2, 1)
+# deb_item5 = Item("debug5", 1, 2)
+# deb_item6 = Item("debug6", 4, 1)
+#
+# deb_inventory.add_item(deb_item, 4, 0)
+# deb_inventory.add_item(deb_item2, 3, 4)
+# deb_inventory.add_item(deb_item3, 3, 0)
+# deb_inventory.add_item(deb_item4, 2, 2)
 #
 # print(deb_inventory.inventory_to_string())
 #
-# deb_inventory.get_rotated_idiot(deb_item)
+# print(deb_inventory.add_item(deb_item5, 1, 4))
+#
+# print(deb_inventory.inventory_to_string())
+#
+# print(deb_inventory.add_item(deb_item6, 1, 0))
+# print(deb_inventory.inventory_to_string())
+#
+# print(deb_inventory.get_rotated_idiot(deb_item5))
+# print(deb_inventory.move_item(deb_item5, 0, 2))
 #
 # print(deb_inventory.inventory_to_string())
