@@ -46,12 +46,12 @@ class UiButton(UiElement):
         self.animate = self.button_rect.y + self.animation_offset
 
     def execute(self):
-        try:
-            result = self.action()
-            return True if not result else result
-        except Exception as e:
-            print(f"Somehow an error accured:\n{e}")
-            return False
+        result = self.action()
+        # try:
+        #     return True if not result else result
+        # except Exception as e:
+        #     print(f"Somehow an error accured:\n{e}")
+        #     return False
 
 
     def draw(self, surface):

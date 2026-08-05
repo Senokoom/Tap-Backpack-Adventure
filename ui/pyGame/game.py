@@ -44,7 +44,7 @@ class PyGameWindow:
                     pygame.quit()
                     sys.exit()
             self.draw()
-            dt = self.clock.tick(160)
+            dt = self.clock.tick(165)
             pygame.display.flip()
 
 

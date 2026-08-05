@@ -117,9 +117,38 @@ class AppController:
     def get_enemy_level(self):
         return self.state.get_enemy_level()
 
+    def get_pending_item_list(self):
+        return self.state.pending_loot
+
+    def get_item_from_inventory_by_coordinates(self,x,y,inv_type):
+        if inv_type == "active_inventory":
+            return self.state.get_item_by_coordinates_from_active_inventory(x,y)
+        elif inv_type == "backpack_inventory":
+            return self.state.get_item_by_coordinates_from_backpack_inventory(x, y)
+        return None
+
+    def get_item_rotated(self, item, inv_type):
+        if inv_type == "active_inventory":
+            return self.state.rotate_item_active_inventory(item)
+        elif inv_type == "backpack_inventory":
+            return self.state.rotate_item_backpack_inventory(item)
+        return None
+
+
+    def get_item_move_by_player(self, x, y, item, inv_type):
+        if inv_type == "active_inventory":
+            return self.state.move_item_by_player_in_active_inventory(item, x, y)
+        elif inv_type == "backpack_inventory":
+            return self.state.move_item_by_player_in_backpack_inventory(item, x, y)
+        return None
+
+
+    def push_item_from_pending_into_active_inventory(self, item, x, y):
+        return self.state.push_item_from_pending_in_inventory(x, y, item, "active_inventory")
+
     def get_inventory_ui_data(self, inv_type):
-        if inv_type == "Active Inventory":
+        if inv_type == "active_inventory":
             return self.state.get_active_inventory_ui_data()
-        elif inv_type == "Backpack":
+        elif inv_type == "passive_inventory":
             return self.state.get_backpack_inventory_ui_data()
         return []

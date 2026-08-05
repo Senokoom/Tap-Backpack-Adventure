@@ -56,13 +56,13 @@ class UiBattleBackground(UiElement):
         self.clouds_list = []
 
     def execute(self, mouse_pos):
-        try:
-            result = self.action()
-            self.enemy.hit(mouse_pos)
-            return True if not result else result
-        except Exception as e:
-            print(f"Somehow an error accured:\n{e}")
-            return False
+        result = self.action()
+        self.enemy.hit(mouse_pos)
+        # try:
+        #     return True if not result else result
+        # except Exception as e:
+        #     print(f"Somehow an error accured:\n{e}")
+        #     return False
 
     def draw(self, surface):
         if randint(0, 200) and self.can_generate:

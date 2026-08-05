@@ -8,6 +8,7 @@ from ui.pyGame.UiElements.UiButton import UiButton
 from ui.pyGame.UiElements.UiImage import UiImage
 from ui.pyGame.UiElements.UiBattleBackground import UiBattleBackground
 from ui.pyGame.UiElements.UiEnemy import UiEnemy
+from ui.pyGame.UiElements.UiInventory import UiInventory
 from ui.pyGame.UiElements.UiLabel import UiLabel
 from ui.pyGame.UiElements.UiLevelUp import UiLevelUp
 from ui.pyGame.UiElements.UiProgressBar import UiProgressBar
@@ -132,6 +133,23 @@ class BattleScene(BaseScene):
 
 
 
+        self.ui_objects.append(act_inventory := UiInventory("active_inventory",100, 250, self.controller, self.controller.get_inventory_ui_data("active_inventory"), controller.get_active_inventory_width_height(),
+                                                            {
+                                                                "common": (150, 150, 150),
+                                                                "uncommon": (120, 200, 120),
+                                                                "rare": (120, 120, 200),
+                                                                "epic": (200, 100, 200),
+                                                                "legendary": (230, 230, 100)
+                                                            },
+                                                            50, 50,
+                                                            (100, 100, 100), (0,0,0),(255, 255, 255),2))
+
+
+        self.ui_objects.append(push_item := UiButton("pusher", 500, 200, 200, 200, (255, 210, 230),
+                                                     pygame.font.Font(UiConfig.game_font, 10), "", 0,
+                                                     self.debug_push_item_in_inventory))
+
+        self.active_inventory = act_inventory
         # {'physical_damage': 1,
         # 'fire_damage': 1,
         # 'ice_damage': 1,
@@ -220,8 +238,8 @@ class BattleScene(BaseScene):
             if obj.show:
                 obj.draw(surface)
 
-
     def update(self):
+        self.active_inventory.update()
         total_xp = int(self.controller.get_player_xp())
         player_level = int(self.controller.get_player_level())
         next_threshold = int(self.controller.get_player_xp_to_next_level())
@@ -259,19 +277,28 @@ class BattleScene(BaseScene):
 
     def handle_event(self, event):
         if event.type == pygame.MOUSEBUTTONUP:
-            self.clicked_obj = MainScene.checkIntersection(self.ui_objects, pygame.mouse.get_pos())
-            for obj in self.ui_objects:
-                obj.clicked = False
-            if self.clicked_obj and self.clicked_obj.show:
-                if isinstance(self.clicked_obj, UiBattleBackground):
-                    self.dps += self.controller.get_last_damage()
-                    self.clicked_obj.execute(pygame.mouse.get_pos())
-                else:
-                    self.clicked_obj.execute()
+            if event.button == 1:
+                self.clicked_obj = MainScene.checkIntersection(self.ui_objects, pygame.mouse.get_pos())
+                for obj in self.ui_objects:
+                    obj.clicked = False
+                if self.clicked_obj and self.clicked_obj.show:
+                    if isinstance(self.clicked_obj, UiBattleBackground):
+                        self.dps += self.controller.get_last_damage()
+                        self.clicked_obj.execute(pygame.mouse.get_pos())
+                    elif isinstance(self.clicked_obj, UiInventory):
+                        self.clicked_obj.execute(event)
+                    else:
+                        self.clicked_obj.execute()
+                elif not self.clicked_obj or not isinstance(self.clicked_obj, UiInventory):
+                    self.active_inventory.clicked_off()
+        if event.type == pygame.MOUSEBUTTONUP:
+            if event.button == 3 and isinstance(self.clicked_obj, UiInventory):
+                self.clicked_obj.execute(event)
         if event.type == pygame.MOUSEBUTTONDOWN:
-            self.clicked_obj = MainScene.checkIntersection(self.ui_objects, pygame.mouse.get_pos())
-            if self.clicked_obj:
-                self.clicked_obj.clicked = True
+            if event.button == 1:
+                self.clicked_obj = MainScene.checkIntersection(self.ui_objects, pygame.mouse.get_pos())
+                if self.clicked_obj:
+                    self.clicked_obj.clicked = True
 
     def level_up_physical(self):
         self.controller.get_player_level_up("physical_damage")
@@ -322,3 +349,8 @@ class BattleScene(BaseScene):
     def show_level_up(self):
         for obj in self.level_upgrade_list:
             obj.show = True
+
+
+    def debug_push_item_in_inventory(self):
+        if self.controller.get_pending_item_list():
+            self.controller.push_item_from_pending_into_active_inventory(self.controller.get_pending_item_list()[0], 0,0)

@@ -3,14 +3,6 @@ from numpy.core.multiarray import item
 from classes.Inventory.cell import Cell
 
 
-#так же тупо для дебага, потом убрать
-# class Item:
-#     def __init__(self, name, width, height):
-#         self.name = name
-#         self.width = width
-#         self.height = height
-
-
 class Inventory:
     def __init__(self, width, height):
         self.width = width
@@ -51,8 +43,8 @@ class Inventory:
     def remove_item(self, item):
         x = item.origin_x
         y = item.origin_y
-        for j in range(x, x + item.width):
-            for i in range(y, y + item.height):
+        for i in range(x, x + item.width):
+            for j in range(y, y + item.height):
                 self.inventory_matrix[i][j].item = None
                 self.inventory_matrix[i][j].is_origin = False
         self.inventory_matrix[x][y].is_origin = False
@@ -66,19 +58,23 @@ class Inventory:
         y = item.origin_y
         item.width, item.height = item.height, item.width
         if self.can_fit(item, item.origin_x, item.origin_y):
+            item.width, item.height = item.height, item.width
             self.remove_item(item)
+            item.width, item.height = item.height, item.width
             self.unchecked_add_item(item, x, y)
+            return True
         else:
             item.width, item.height = item.height, item.width
-        return
+            return False
 
 
     def move_item(self, item, x, y):
         if self.can_fit(item, x, y):
             self.remove_item(item)
             self.unchecked_add_item(item, x, y)
+            return True
         else:
-            return
+            return False
 
     def can_fit(self, item, x, y):
         if x + item.width > self.width or y + item.height > self.height:
@@ -94,11 +90,11 @@ class Inventory:
                         return False
         return True
 
-    def unlock_cell(self, x, y):
-        if not self.inventory_matrix[x][y].is_locked:
+    def unlock_cell(self, y, x):
+        if not self.inventory_matrix[y][x].is_locked:
             return False
         else:
-            self.inventory_matrix[x][y].is_locked = False
+            self.inventory_matrix[y][x].is_locked = False
         return True
 
 ### СОЗДАНИЕ DICT ДЛЯ СОХРАНЕНИЯ В JSON И ОБРАТНО.
@@ -166,11 +162,22 @@ class Inventory:
             inventory_string += "\n"
         return inventory_string
 
+#так же тупо для дебага, потом убрать
+class Item:
+    def __init__(self, name, width, height):
+        self.name = name
+        self.width = width
+        self.height = height
+
 
 # ДЕБАЖИЛ
 # deb_inventory = Inventory(7, 7)
 # print(deb_inventory.inventory_to_string())
-# deb_item = Item("debug", 1, 2)
+# deb_item = Item("debug", 3, 1)
 # deb_inventory.add_item(deb_item, 0, 0)
-# print(deb_inventory.item_list_to_string())
+#
+# print(deb_inventory.inventory_to_string())
+#
+# deb_inventory.get_rotated_idiot(deb_item)
+#
 # print(deb_inventory.inventory_to_string())

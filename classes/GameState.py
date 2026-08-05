@@ -40,11 +40,22 @@ class GameState:
             self.on_enemy_death()
 
 
+    def push_item_from_pending_in_inventory(self, x, y, item, inventory_type):
+        result = False
+        if inventory_type == "active_inventory":
+            result = self.player.ActiveInventory.add_item(item, x, y)
+        elif inventory_type == "backpack_inventory":
+            result = self.player.BackpackInventory.add_item(item, x, y)
+        if result:
+            self.pending_loot.remove(item)
+        return result
+
+
     def on_enemy_death(self):
         self.player.xppoints += self.calculator.get_enemy_xp_drop(self.current_enemy, self.player)
         self.player.gold += self.calculator.get_gold_drop(self.current_enemy, self.player)
         if randint(0, 100) <= self.player.stats["item_drop"] or self.current_enemy.is_boss:
-            print(weapon := self.itemgenerator.generate_weapon_item(self.player, self.player.level).get_info())
+            print(weapon := self.itemgenerator.generate_weapon_item(self.player, self.player.level))
             self.pending_loot.append(weapon)
         if self.player.xppoints >= self.calculator.get_xp_for_next_level(self.player):
             self.player.level += 1
@@ -109,7 +120,7 @@ class GameState:
                     row.append({
                         "name": cell.item.name,
                         "rarity": cell.item.rarity,
-                        "stats": cell.item.stats
+                        "stats": cell.item.current_stats
                     })
                 else:
                     row.append(None)
@@ -133,7 +144,23 @@ class GameState:
             ui_matrix.append(row)
         return ui_matrix
 
+    def rotate_item_active_inventory(self, item):
+        return self.player.ActiveInventory.get_rotated_idiot(item)
 
+    def rotate_item_backpack_inventory(self, item):
+        return self.player.BackpackInventory.get_rotated_idiot(item)
+
+    def get_item_by_coordinates_from_active_inventory(self, x, y):
+        return self.player.ActiveInventory.inventory_matrix[y][x].item
+
+    def get_item_by_coordinates_from_backpack_inventory(self, x, y):
+        return self.player.BackpackInventory.inventory_matrix[x][y].item
+
+    def move_item_by_player_in_active_inventory(self, item, x, y):
+        return self.player.ActiveInventory.move_item(item, x, y)
+
+    def move_item_by_player_in_backpack_inventory(self, item, x, y):
+        return self.player.BackpackInventory.move_item(item, x, y)
 ##___________________________ЧИСТО СОХРАНЕНИЕ_______________________
 
     def to_dict(self):
